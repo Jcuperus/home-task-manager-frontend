@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar.component';
 import { HomeComponent } from './home.component';
+import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
     BrowserModule,
+    TasksModule,
     AppRoutingModule
   ],
   providers: [],
