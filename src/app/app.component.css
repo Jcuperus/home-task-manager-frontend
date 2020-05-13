@@ -1,0 +1,15 @@
+:host {
+    position: absolute;
+    top: 76px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#page-content {
+    margin-left: 300px;
+}
+
+main {
+    padding: 15px;
+}
