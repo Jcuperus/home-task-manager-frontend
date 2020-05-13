@@ -7,6 +7,8 @@ import { Component } from "@angular/core";
         <nav>
             <a class="title" routerLink="/"><i class="fa fa-2x fa-rocket"></i><span>Home Task Manager</span></a>
             <a *ngFor="let link of links" [routerLink]="link.route">{{ link.title }}</a>
+            <div class="spacer"></div>
+            <a routerLink="/"><i class="fas fa-2x fa-user-circle"></i></a>
         </nav>
     `
 })
