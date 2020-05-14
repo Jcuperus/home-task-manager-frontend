@@ -15,9 +15,9 @@ import { Component } from "@angular/core";
 export class NavbarComponent { 
     links = [
         { route: '/tasks', title: 'Tasks' },
-        { route: '/', title: 'Link' },
-        { route: '/', title: 'More Links' },
-        { route: '/', title: 'Even More Links' },
-        { route: '/', title: 'No More Links' }
+        { route: '/link', title: 'Link' },
+        { route: '/more-links', title: 'More Links' },
+        { route: '/even-more-links', title: 'Even More Links' },
+        { route: '/no-more-links', title: 'No More Links' }
     ]
 }
