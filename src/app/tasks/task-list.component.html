@@ -1,0 +1,13 @@
+<table class="tasks">
+    <tr>
+        <th colspan="3">Tasks</th>
+    </tr>
+    <tr *ngFor="let task of tasks; last as isLast" [ngClass]="{ 'last': isLast }">
+        <td class="icon">
+            <span *ngIf="task.isDone; else notDone"><i class="fas fa-check"></i></span>
+            <ng-template #notDone><i class="fas fa-times"></i></ng-template>
+        </td>
+        <td class="name-col">{{ task.name }}</td>
+        <td>{{ task.description }}</td>
+    </tr>
+</table>
