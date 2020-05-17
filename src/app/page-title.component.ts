@@ -8,7 +8,7 @@ import { TitleService } from './title.service';
 export class PageTitleComponent {
     title: string;
 
-    constructor(private titleService: TitleService) {
+    constructor(titleService: TitleService) {
         titleService.$titleUpdated.subscribe(title => this.title = title);
     }
 }
