@@ -5,15 +5,21 @@ import { FormsModule } from "@angular/forms";
 import { TaskListComponent } from './task-list.component';
 
 import { TasksRoutingModule } from './tasks-routing.module';
+import { TaskService } from './task.service';
+import { TaskFormComponent } from './task-form.component';
 
 @NgModule({
     declarations: [
-        TaskListComponent
+        TaskListComponent,
+        TaskFormComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
         TasksRoutingModule
+    ],
+    providers: [
+        TaskService
     ]
 })
 export class TasksModule {  }

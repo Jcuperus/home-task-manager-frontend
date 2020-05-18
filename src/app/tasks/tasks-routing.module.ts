@@ -6,6 +6,7 @@ import { TaskFormComponent } from './task-form.component';
 
 const tasksRoutes: Routes = [
     { path: 'create', component: TaskFormComponent, data: { title: 'Create task' } },
+    { path: ':id', component: TaskFormComponent, data: { title: 'Edit task' } },
     { path: '', component: TaskListComponent, data: { title: 'Task overview' } }
 ];
 
