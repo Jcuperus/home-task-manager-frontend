@@ -1,11 +1,6 @@
-export class Task {
+export interface Task {
+    id?: number;
     name: string;
     description: string;
     isDone: boolean;
-
-    constructor(name: string, description: string, isDone: boolean = true) {
-        this.name = name;
-        this.description = description;
-        this.isDone = isDone;
-    }
 }

@@ -16,7 +16,7 @@ export class TaskFormComponent implements OnInit {
             if (params.has('id')) {
                 this.taskService.getTask(parseInt(params.get('id'))).subscribe((task: Task) => this.task = task);
             } else {
-                this.task = new Task('', '');
+                this.task = { name: '', description: '', isDone: false };
             }
         });
     }

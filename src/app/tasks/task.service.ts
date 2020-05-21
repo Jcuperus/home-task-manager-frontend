@@ -13,4 +13,12 @@ export class TaskService {
     getTasks(): Observable<Task[]> {
         return of(TASKS);
     }
+
+    saveTask(task: Task) {
+        
+    }
+
+    deleteTask(task: Task) {
+
+    }
 }

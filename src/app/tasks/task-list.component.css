@@ -1,13 +1,13 @@
 .tasks th {
     background-color: #00796b;
-    color: white;
+    color: #ffffff;
     text-align: left;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
 .tasks td {
-    background-color: white;
+    background-color: #e1e2e1;
 }
 
 .tasks td.icon {

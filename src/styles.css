@@ -9,6 +9,11 @@ body {
     background-color: #e1e2e1;
 }
 
+a {
+    color: unset;
+    text-decoration: unset;
+}
+
 .container {
     background-color: #ffffff;
     padding: 15px;
