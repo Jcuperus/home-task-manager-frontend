@@ -7,6 +7,8 @@ import { NavbarComponent } from './navbar.component';
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { CommonComponentsModule } from './common-components/common-components.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { CommonComponentsModule } from './common-components/common-components.mo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonComponentsModule
+    CommonComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
