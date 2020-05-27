@@ -1,6 +1,6 @@
 <div class="container">
     <app-page-title></app-page-title>
-    <form>
+    <form (ngSubmit)="onSave()">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" class="form-component" name="name" [(ngModel)]="task.name" placeholder="Name">
@@ -9,7 +9,12 @@
             <label for="description">Description</label>
             <textarea id="description" class="form-component" name="description" [(ngModel)]="task.description" placeholder="Description"></textarea>
         </div>
-        <button type="submit" class="button primary">Save</button>
+        <div class="form-group">
+            <select name="group" id="group" [(ngModel)]="task.groupId">
+                <option *ngFor="let group of groups" [ngValue]="group.id">{{ group.name }}</option>
+            </select>
+        </div>
+        <button class="button primary" type="submit">Save</button>
         <a routerLink="/tasks" class="button">Cancel</a>
     </form>
 </div>

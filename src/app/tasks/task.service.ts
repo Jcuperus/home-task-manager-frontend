@@ -8,7 +8,7 @@ import { Group } from '../groups/group';
 @Injectable()
 export class TaskService {
     getTask(id: number): Observable<Task> {
-        return of(TASKS[id]);
+        return of(TASKS.filter(task => task.id == id)[0]);
     }
 
     getTasks(): Observable<Task[]> {
@@ -19,8 +19,8 @@ export class TaskService {
         return of(TASKS.filter(task => groups.filter(group => group.id == task.groupId).length > 0));
     }
 
-    saveTask(task: Task) {
-        
+    saveTask(task: Task): Observable<any> {
+        return of(task);
     }
 
     deleteTask(task: Task) {
