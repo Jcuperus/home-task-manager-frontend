@@ -5,7 +5,7 @@ import { filter, map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class TitleService {
     private titleUpdatedSource = new Subject<string>();

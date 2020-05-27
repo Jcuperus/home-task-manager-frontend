@@ -6,19 +6,19 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar.component';
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { PageTitleComponent } from './page-title.component';
+import { CommonComponentsModule } from './common-components/common-components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    PageNotFoundComponent,
-    PageTitleComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
