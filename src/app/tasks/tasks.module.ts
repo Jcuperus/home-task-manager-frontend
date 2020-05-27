@@ -9,10 +9,12 @@ import { TaskService } from './task.service';
 import { TaskFormComponent } from './components/task-form.component';
 import { GroupsModule } from '../groups/groups.module';
 import { CommonComponentsModule } from '../common-components/common-components.module';
+import { TasksListComponent } from './components/tasks-list.component';
 
 @NgModule({
     declarations: [
         TasksComponent,
+        TasksListComponent,
         TaskFormComponent
     ],
     imports: [

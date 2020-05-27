@@ -1,3 +1,4 @@
 <div *ngFor="let checkboxItem of checkboxItems">
-    <input type="checkbox" [(ngModel)]="checkboxItem.checked" (change)="onSelect(checkboxItem)"><label>{{ checkboxItem.label }}</label>
+    <input type="checkbox" [(ngModel)]="checkboxItem.checked" (change)="onSelect(checkboxItem)" [id]="'checkbox' + checkboxItem.value">
+    <label [for]="'checkbox' + checkboxItem.value">{{ checkboxItem.label }}</label>
 </div>

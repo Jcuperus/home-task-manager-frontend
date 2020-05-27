@@ -10,13 +10,14 @@ export class GroupCheckboxItemAdapter implements Group, CheckboxItem {
     name: string;
     value: string;
     label: string;
-    checked: boolean = false;
+    checked: boolean;
 
-    constructor(group: Group) {
+    constructor(group: Group, checked?: boolean) {
         this.id = group.id;
         this.name = group.name;
         this.value = group.id.toString();
         this.label = group.name;
+        this.checked = checked ? checked : false;
     }
     
 }

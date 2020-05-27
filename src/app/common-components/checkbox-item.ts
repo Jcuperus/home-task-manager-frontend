@@ -1,5 +1,5 @@
 export interface CheckboxItem {
-    value: string,
-    label: string,
-    checked: boolean
+    value: string;
+    label: string;
+    checked: boolean;
 }

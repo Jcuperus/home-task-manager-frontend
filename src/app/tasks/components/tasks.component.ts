@@ -16,14 +16,12 @@ export class TasksComponent implements OnInit {
 
     ngOnInit() {
         this.groupsService.getGroups().subscribe(groups => {
-            this.groups = groups.map(group => new GroupCheckboxItemAdapter(group));
-            console.log(this.groups);
+            this.groups = groups.map(group => new GroupCheckboxItemAdapter(group, true));
+            this.onGroupsChange(this.groups.filter(group => group.checked));
         });
-
-        this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
     }
 
     onGroupsChange(selectedGroups: Group[]) {
-        console.log(selectedGroups);
+        this.taskService.getGroupTasks(selectedGroups).subscribe(tasks => this.tasks = tasks);
     }
 }
