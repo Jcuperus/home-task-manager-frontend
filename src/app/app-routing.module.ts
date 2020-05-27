@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
   { path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(module => module.TasksModule) },
+  { path: 'group', loadChildren: () => import('./groups/groups.module').then(module => module.GroupsModule)},
   { path: '', component: HomeComponent, data: { title: 'Home' } },
   { path: '**', component: PageNotFoundComponent, data: { title: 'Not found' } }
 ];

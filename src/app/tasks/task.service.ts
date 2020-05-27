@@ -14,11 +14,7 @@ export class TaskService {
         return of(TASKS);
     }
 
-    saveTask(task: Task) {
+    finishTasks(): void{
         
-    }
-
-    deleteTask(task: Task) {
-
     }
 }

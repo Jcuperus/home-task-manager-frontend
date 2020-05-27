@@ -1,0 +1,16 @@
+<div class="container">
+    <a routerLink="create" class="button primary">New group</a>
+    <table class="tasks">
+        <tr>
+            <th colspan="4">List of Groups</th>
+        </tr>
+        <tr *ngFor="let group of groups">
+            <td>
+                Members of group {{ group.name }}:
+            </td>
+            <td *ngFor="let member of group.group">
+                {{ member }}
+            </td>
+        </tr>
+    </table>
+</div>
