@@ -5,7 +5,9 @@
 <div class="sidebar-container">
     <div class="container">
         <app-page-title></app-page-title>
-        <a routerLink="create" class="button primary">New task</a>
+        <div class="actions">
+            <a routerLink="create" class="button primary">New task</a>
+        </div>
         <app-tasks-list [tasks]="tasks"></app-tasks-list>
     </div>
 </div>

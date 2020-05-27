@@ -3,7 +3,8 @@ import { CheckboxItem } from './checkbox-item';
 
 @Component({
     selector: 'app-checkbox-group',
-    templateUrl: './checkbox-group.component.html'
+    templateUrl: './checkbox-group.component.html',
+    styles: ['ul { list-style-type: none; padding-left: 10px; }']
 })
 export class CheckboxGroupComponent {
     @Input() checkboxItems: CheckboxItem[];

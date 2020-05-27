@@ -40,11 +40,18 @@ a {
 /* Form components */
 
 input,
-textarea {
+textarea,
+select {
     font-family: 'Open Sans', sans-serif;
     padding: 10px;
     border: 1px solid #e1e2e1;
     border-radius: 3px;
+}
+
+input[type="checkbox"] {
+    border: 1px solid #e1e2e1;
+    border-radius: 3px;
+    background: unset;
 }
 
 input:focus,
