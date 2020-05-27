@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { TaskService } from './task.service';
-import { Task } from './task';
+import { TaskService } from '../task.service';
+import { Task } from '../task';
 
 @Component({
     templateUrl: './task-form.component.html'
