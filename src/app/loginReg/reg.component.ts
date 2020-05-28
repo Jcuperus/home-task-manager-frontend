@@ -4,5 +4,13 @@ import { Component } from "@angular/core";
     templateUrl: './reg-form.component.html'
 })
 export class RegComponent {
+    name: String;
+    password: String;
 
+    constructor() {
+    }
+
+    setdata(name){
+        this.name = name;
+    }
 }
