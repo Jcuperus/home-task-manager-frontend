@@ -3,11 +3,15 @@ import { CheckboxGroupComponent } from './checkbox-group.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PageTitleComponent } from './page-title.component';
+import { Sidebar, SidebarContent, SidebarLayout } from './sidebar/sidebar.component';
 
 @NgModule({
     declarations: [
         CheckboxGroupComponent,
-        PageTitleComponent
+        PageTitleComponent,
+        Sidebar,
+        SidebarContent,
+        SidebarLayout
     ],
     imports: [
         CommonModule,
@@ -15,7 +19,10 @@ import { PageTitleComponent } from './page-title.component';
     ],
     exports: [
         CheckboxGroupComponent,
-        PageTitleComponent
+        PageTitleComponent,
+        Sidebar,
+        SidebarContent,
+        SidebarLayout
     ]
 })
 export class CommonComponentsModule {

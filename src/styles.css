@@ -17,25 +17,8 @@ a {
 .container {
     background-color: #ffffff;
     padding: 15px;
-    margin: 15px 10%;
+    margin: 15px;
 }
-
-.sidebar {
-    position: fixed;
-    padding: 15px;
-    left: 0;
-    top: 76px;
-    bottom: 0;
-    min-width: 260px;
-    background-color: #ffffff;
-    box-sizing: border-box;
-}
-
-.sidebar-container {
-    margin-left: 260px;
-    height: 100%;
-}
-
 
 /* Form components */
 
@@ -92,8 +75,8 @@ textarea:focus {
     box-sizing: border-box;
 }
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
     .container {
         margin: 15px 15px;
     }
-}
+} */

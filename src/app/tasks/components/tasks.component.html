@@ -1,8 +1,8 @@
-<div class="sidebar">
+<app-sidebar>
     <h3>Groups</h3>
     <app-checkbox-group [checkboxItems]="groups" (onSelectionChange)="onGroupsChange($event)"></app-checkbox-group>
-</div>
-<div class="sidebar-container">
+</app-sidebar>
+<app-sidebar-content>
     <div class="container">
         <app-page-title></app-page-title>
         <div class="actions">
@@ -10,4 +10,4 @@
         </div>
         <app-tasks-list [tasks]="tasks"></app-tasks-list>
     </div>
-</div>
+</app-sidebar-content>
