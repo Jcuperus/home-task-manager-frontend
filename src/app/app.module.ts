@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+//import { HttpClientModule } from 'angular/common.http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { PageTitleComponent } from './page-title.component';
   ],
   imports: [
     BrowserModule,
+    //After browsermodule HttpClientModule      dit zou hier moeten voor servercommunicatie 'S. Kuiper'
     AppRoutingModule
   ],
   providers: [],

@@ -10,6 +10,7 @@ export class RegComponent {
     constructor() {
     }
 
+    //Dit is nu nog een test form zonder enige connectie.
     setdata(name){
         this.name = name;
     }
