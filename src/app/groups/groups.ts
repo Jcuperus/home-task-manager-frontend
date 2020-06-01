@@ -1,4 +1,8 @@
+import { User } from './user';
+
 export interface Group {
-    group: Array<string>;
+    id?: number;
+    manager: User;
+    group: Array<User>;
     name: string;
 }

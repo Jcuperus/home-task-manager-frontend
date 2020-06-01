@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { GroupFormComponent } from './group-form.component';
 import { GroupListComponent } from './group-list.component';
@@ -14,7 +14,8 @@ import { GroupsService } from './groups.service';
     ],
     imports: [
         CommonModule, 
-        FormsModule, 
+        FormsModule,
+        ReactiveFormsModule, 
         GroupRoutingModule
     ],
     providers: [

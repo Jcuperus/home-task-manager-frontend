@@ -6,6 +6,7 @@ import { GroupFormComponent } from './group-form.component';
 
 const routes: Routes = [
     { path: 'create', component: GroupFormComponent, data: { title: 'Create new group'}},
+    { path: ':id', component: GroupFormComponent, data: { title: 'Edit group'}},
     { path: '', component: GroupListComponent, data: { title: 'List of groups'}}
 ];
 

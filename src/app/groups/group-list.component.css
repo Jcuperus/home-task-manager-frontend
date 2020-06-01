@@ -1,0 +1,32 @@
+.groups th {
+    background-color: #00796b;
+    color: #ffffff;
+    text-align: left;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.groups td {
+    background-color: #e1e2e1;
+}
+
+.groups td.icon {
+    text-align: center;
+}
+
+.groups td.name-col {
+    min-width: 200px;
+}
+
+.groups tr.last td:first-of-type {
+    border-bottom-left-radius: 5px;
+}
+
+.groups tr.last td:last-of-type {
+    border-bottom-right-radius: 5px;
+}
+
+.groups td,
+.groups th {
+    padding: 10px 20px;
+}
