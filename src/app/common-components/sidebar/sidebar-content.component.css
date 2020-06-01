@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    margin-left: 260px;
+    height: 100%;
+    transition: 200ms margin ease-in-out;
+}
+
+@media (max-width: 768px) {
+    :host {
+        margin-left: unset;
+    }
+}

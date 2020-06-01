@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'tasks', loadChildren: () => import('./tasks/tasks.module').then(module => module.TasksModule) },
   { path: 'reg', component: RegComponent, data: { title: 'Registration' } },
   { path: '', component: HomeComponent, data: { title: 'Home' } },
-  { path: '**', component: PageNotFoundComponent, data: { title: 'Not found' } }
+  { path: '**', component: PageNotFoundComponent, data: { title: '404' } }
 ];
 
 @NgModule({

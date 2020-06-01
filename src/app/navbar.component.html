@@ -1,0 +1,10 @@
+<nav>
+    <a class="title" routerLink="/"><i class="fa fa-2x fa-rocket"></i><span>Home Task Manager</span></a>
+    <a class="show-nav-button" (click)="toggleMobileNav()"><i class="fas" [ngClass]="mobileNavOpen ? 'fa-chevron-up' : 'fa-chevron-down'"></i></a>
+    <a *ngFor="let link of links" [routerLink]="link.route" class="nav-link">{{ link.title }}</a>
+    <div class="spacer"></div>
+    <a routerLink="/"><i class="fas fa-2x fa-user-circle"></i></a>
+    <div class="mobile-nav" [ngClass]="mobileNavOpen ? 'open' : ''">
+        <a *ngFor="let link of links" [routerLink]="link.route" class="nav-link">{{ link.title }}</a>
+    </div>  
+</nav>

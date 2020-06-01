@@ -9,20 +9,32 @@ body {
     background-color: #e1e2e1;
 }
 
+a {
+    color: unset;
+    text-decoration: unset;
+}
+
 .container {
     background-color: #ffffff;
     padding: 15px;
+    margin: 15px;
 }
-
 
 /* Form components */
 
 input,
-textarea {
+textarea,
+select {
     font-family: 'Open Sans', sans-serif;
     padding: 10px;
     border: 1px solid #e1e2e1;
     border-radius: 3px;
+}
+
+input[type="checkbox"] {
+    border: 1px solid #e1e2e1;
+    border-radius: 3px;
+    background: unset;
 }
 
 input:focus,
@@ -62,3 +74,9 @@ textarea:focus {
     width: 100%;
     box-sizing: border-box;
 }
+
+/* @media only screen and (max-width: 800px) {
+    .container {
+        margin: 15px 15px;
+    }
+} */

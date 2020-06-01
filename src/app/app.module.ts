@@ -7,20 +7,23 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar.component';
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { PageTitleComponent } from './page-title.component';
+import { CommonComponentsModule } from './common-components/common-components.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    PageNotFoundComponent,
-    PageTitleComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     //After browsermodule HttpClientModule      dit zou hier moeten voor servercommunicatie 'S. Kuiper'
-    AppRoutingModule
+    AppRoutingModule,
+    CommonComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

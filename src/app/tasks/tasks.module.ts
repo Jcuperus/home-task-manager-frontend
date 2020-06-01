@@ -2,21 +2,27 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 
-import { TaskListComponent } from './task-list.component';
+import { TasksComponent } from './components/tasks.component';
 
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TaskService } from './task.service';
-import { TaskFormComponent } from './task-form.component';
+import { TaskFormComponent } from './components/task-form.component';
+import { GroupsModule } from '../groups/groups.module';
+import { CommonComponentsModule } from '../common-components/common-components.module';
+import { TasksListComponent } from './components/tasks-list.component';
 
 @NgModule({
     declarations: [
-        TaskListComponent,
+        TasksComponent,
+        TasksListComponent,
         TaskFormComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
-        TasksRoutingModule
+        TasksRoutingModule,
+        GroupsModule,
+        CommonComponentsModule
     ],
     providers: [
         TaskService
