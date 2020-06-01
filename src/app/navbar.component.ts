@@ -18,6 +18,5 @@ export class NavbarComponent {
 
     toggleMobileNav() {
         this.mobileNavOpen = !this.mobileNavOpen;
-        console.log(this.mobileNavOpen);
     }
 }
