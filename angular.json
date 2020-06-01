@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "home-task-manager-frontend"
+    }
+  },
+  "defaultProject": "home-task-manager-frontend",
+  "cli": {
+    "analytics": false
+  }
 }

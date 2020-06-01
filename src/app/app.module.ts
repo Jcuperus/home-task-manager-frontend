@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+//import { HttpClientModule } from 'angular/common.http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    //After browsermodule HttpClientModule      dit zou hier moeten voor servercommunicatie 'S. Kuiper'
     AppRoutingModule,
     CommonComponentsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
