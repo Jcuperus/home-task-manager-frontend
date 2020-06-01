@@ -1,8 +1,20 @@
 <div class='container'>
     <table class='groups'>
         <tr>
-            <th colspan="2">Member</th>
+            <th colspan="1">Member</th>
             <th colspan="1">Actions</th>
         </tr>
+        <tr *ngFor='let member of currentGroup.group'>
+            <td>
+                {{ member.name }}
+            </td>
+            <td>
+                <button type="button" (click)="removeMember(member)">Delete member</button>
+                <button type="button" (click)="makeManager(member)">Make manager</button>
+            </td>
+        </tr>
+        <h2>Add members: </h2>
+            <input type='text' id='member'>
+        <button type="button" class="button primary" (click)="addMember()">Add member</button>
     </table>
 </div>

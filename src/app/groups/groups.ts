@@ -2,7 +2,7 @@ import { User } from './user';
 
 export interface Group {
     id?: number;
-    manager: User;
+    managers: Array<User>;
     group: Array<User>;
     name: string;
 }

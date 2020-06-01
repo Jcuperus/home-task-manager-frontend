@@ -19,6 +19,11 @@ export class GroupListComponent implements OnInit{
     }
 
     isManager(group: Group): boolean{
-        return currentUser == group.manager;
+        for(let manager of group.managers){
+            if(currentUser == manager){
+                return true;
+            }
+        }
+        return false;
     }
 }

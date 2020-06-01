@@ -17,9 +17,21 @@ export class GroupEditFormComponent implements OnInit{
         this.currentGroup = groups[this.route.snapshot.params.id];
     }
 
+    removeMember(user: User){
+        let index = this.currentGroup.group.indexOf(user);
+        this.currentGroup.group.splice(index, 1);
+    }
+
+    makeManager(member: User){
+        this.currentGroup.managers.push(member);
+    }
+
+    addMember(){
+        // backend
+    }
+
     ngOnInit(){
-        let id = this.route.snapshot.params.id;
-        //this.service.getGroup(id).subscribe(currentGroup => this.currentGroup = currentGroup);
+        
     }
 
 

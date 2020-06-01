@@ -25,7 +25,7 @@ export class GroupFormComponent implements OnInit {
             if (params.has('id')) {
                 this.groupservice.getGroup(parseInt(params.get('id'))).subscribe((group: Group) => this.group = group);
             } else {
-                this.group = {id: 0, manager: new User('default','default'), group: [], name: ''};
+                this.group = {id: 0, managers: [new User('default','default')], group: [], name: ''};
             }
         });
         console.log(this.route.snapshot.params.id);
