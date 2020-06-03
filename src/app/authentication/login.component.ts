@@ -1,11 +1,10 @@
 import { Component } from "@angular/core";
 
 @Component({
-    templateUrl: './login-form.component.html'
+    templateUrl: './login.component.html'
 })
 export class LoginComponent {  
 
-    constructor(){
-        
-    }
+    name: String;
+    password: String;
 }
