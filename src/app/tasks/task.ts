@@ -3,5 +3,6 @@ export interface Task {
     groupId?: number;
     name: string;
     description: string;
+    due: Date;
     isDone: boolean;
 }

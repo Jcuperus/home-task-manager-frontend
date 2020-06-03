@@ -23,6 +23,7 @@ a {
 /* Form components */
 
 input,
+.form-group input.ui-inputtext,
 textarea,
 select {
     font-family: 'Open Sans', sans-serif;
@@ -63,6 +64,7 @@ textarea:focus {
 
 .form-group {
     margin-bottom: 15px;
+    max-width: 500px;
 }
 
 .form-group label {
@@ -74,9 +76,3 @@ textarea:focus {
     width: 100%;
     box-sizing: border-box;
 }
-
-/* @media only screen and (max-width: 800px) {
-    .container {
-        margin: 15px 15px;
-    }
-} */

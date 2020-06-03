@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { CommonComponentsModule } from './common-components/common-components.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     //After browsermodule HttpClientModule      dit zou hier moeten voor servercommunicatie 'S. Kuiper'
     AppRoutingModule,
     CommonComponentsModule,
