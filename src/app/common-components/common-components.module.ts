@@ -4,10 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PageTitleComponent } from './page-title.component';
 import { Sidebar, SidebarContent, SidebarLayout } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
         CheckboxGroupComponent,
+        NavbarComponent,
         PageTitleComponent,
         Sidebar,
         SidebarContent,
@@ -15,10 +18,12 @@ import { Sidebar, SidebarContent, SidebarLayout } from './sidebar/sidebar.compon
     ],
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        RouterModule
     ],
     exports: [
         CheckboxGroupComponent,
+        NavbarComponent,
         PageTitleComponent,
         Sidebar,
         SidebarContent,
