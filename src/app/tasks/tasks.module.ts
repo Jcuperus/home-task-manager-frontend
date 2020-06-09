@@ -1,22 +1,29 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-
-import { TaskListComponent } from './task-list.component';
-
-import { TasksRoutingModule } from './tasks-routing.module';
+import { CalendarModule } from 'primeng/calendar';
+import { CommonComponentsModule } from '../common-components/common-components.module';
+import { GroupsModule } from '../groups/groups.module';
+import { TaskFormComponent } from './components/task-form.component';
+import { TasksListComponent } from './components/tasks-list.component';
+import { TasksComponent } from './components/tasks.component';
 import { TaskService } from './task.service';
-import { TaskFormComponent } from './task-form.component';
+import { TasksRoutingModule } from './tasks-routing.module';
+
 
 @NgModule({
     declarations: [
-        TaskListComponent,
+        TasksComponent,
+        TasksListComponent,
         TaskFormComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
-        TasksRoutingModule
+        CalendarModule,
+        TasksRoutingModule,
+        GroupsModule,
+        CommonComponentsModule
     ],
     providers: [
         TaskService

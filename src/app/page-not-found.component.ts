@@ -1,7 +1,12 @@
 import { Component } from "@angular/core";
 
 @Component({
-    template: '<p>Page not found</p>'
+    template: `
+        <div class="container">
+            <app-page-title></app-page-title>
+            <p>Page not found</p>
+        </div>
+    `
 })
 export class PageNotFoundComponent {
     

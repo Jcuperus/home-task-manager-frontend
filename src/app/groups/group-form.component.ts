@@ -28,7 +28,6 @@ export class GroupFormComponent implements OnInit {
                 this.group = {id: 0, managers: [new User('default','default')], group: [], name: ''};
             }
         });
-        console.log(this.route.snapshot.params.id);
     }
 
     get members(){

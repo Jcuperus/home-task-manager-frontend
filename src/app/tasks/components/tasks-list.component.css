@@ -1,4 +1,4 @@
-.tasks th {
+.tasks th.header {
     background-color: #00796b;
     color: #ffffff;
     text-align: left;
@@ -29,4 +29,10 @@
 .tasks td,
 .tasks th {
     padding: 10px 20px;
+}
+
+.tasks .task-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

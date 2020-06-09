@@ -1,0 +1,13 @@
+<app-sidebar>
+    <h3>Groups</h3>
+    <app-checkbox-group [checkboxItems]="groups" (onSelectionChange)="onGroupsChange($event)"></app-checkbox-group>
+</app-sidebar>
+<app-sidebar-content>
+    <div class="container">
+        <app-page-title></app-page-title>
+        <div class="actions">
+            <a routerLink="create" class="button primary">New task</a>
+        </div>
+        <app-tasks-list [tasks]="tasks"></app-tasks-list>
+    </div>
+</app-sidebar-content>

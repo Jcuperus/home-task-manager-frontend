@@ -1,0 +1,17 @@
+:host {
+    position: fixed;
+    padding: 15px;
+    left: 0;
+    top: 76px;
+    bottom: 0;
+    min-width: 260px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transition: 200ms transform ease-in;
+}
+
+@media (max-width: 768px) {
+    :host {
+        transform: translateX(-100%);
+    }   
+}

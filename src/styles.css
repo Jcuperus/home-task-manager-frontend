@@ -17,17 +17,25 @@ a {
 .container {
     background-color: #ffffff;
     padding: 15px;
+    margin: 15px;
 }
-
 
 /* Form components */
 
 input,
-textarea {
+.form-group input.ui-inputtext,
+textarea,
+select {
     font-family: 'Open Sans', sans-serif;
     padding: 10px;
     border: 1px solid #e1e2e1;
     border-radius: 3px;
+}
+
+input[type="checkbox"] {
+    border: 1px solid #e1e2e1;
+    border-radius: 3px;
+    background: unset;
 }
 
 input:focus,
@@ -56,6 +64,7 @@ textarea:focus {
 
 .form-group {
     margin-bottom: 15px;
+    max-width: 500px;
 }
 
 .form-group label {
