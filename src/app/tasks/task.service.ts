@@ -15,15 +15,15 @@ export class TaskService {
         return of(TASKS);
     }
 
+    finishTasks() {
+        
+    }
+        
     getGroupTasks(groups: Group[]): Observable<Task[]> {
         return of(TASKS.filter(task => groups.filter(group => group.id == task.groupId).length > 0));
     }
 
     saveTask(task: Task): Observable<any> {
         return of(task);
-    }
-
-    deleteTask(task: Task) {
-
     }
 }

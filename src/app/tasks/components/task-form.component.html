@@ -19,7 +19,23 @@
             <label for="due">Task due</label>
             <p-calendar name="due" inputId="due" showTime="true" hourFormat="24" dateFormat="d-m-yy" [(ngModel)]="task.due"></p-calendar>
         </div>
+        <div class="form-group">
+            <label for="reminder">Set reminder</label>
+            <select id="hours">
+                <option *ngFor="let hour of hours">{{hour}}</option>
+            </select>
+            :
+            <select id="minutes">
+                <option *ngFor="let minute of minutes">{{minute}}</option>
+            </select><br>
+            This reminder will be shown
+            <select id="minutesBefore">
+                <option *ngFor="let option of reminderOptions">{{option}}</option>
+            </select>
+            before the task needs to be done.
+        </div>
         <button class="button primary" type="submit">Save</button>
+        <a class="button" (click)="onComplete">Mark as completed</a>
         <a routerLink="/tasks" class="button">Cancel</a>
     </form>
 </div>
