@@ -5,7 +5,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http'
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
     tokenPrefix = "Bearer ";
-    token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYWVwIiwiZXhwIjoxNTkzMTg0OTU5fQ.aL9XNwdN1lvcr4mF1QJimy1pCYZtPMUGXuNRklnEWymJ89p5y3Y0f_LdOkIkj1Ygt8wnR0mM7X18leb7sIBluQ";
+    token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImV4cCI6MTU5MzI0NjA5M30.OZg3fkeqCZsDYMy8AxgjVKJnLw9MF3nDjYF8hvW-7S1mzGlw8DtoWlQTLOJzZHQGZUZ8l54huevKd24MlO2E3A";
 
     intercept(request: HttpRequest<any>, next: HttpHandler) {
         const authRequest = request.clone({
