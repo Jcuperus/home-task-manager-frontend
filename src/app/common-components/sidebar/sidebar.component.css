@@ -8,6 +8,7 @@
     background-color: #ffffff;
     box-sizing: border-box;
     transition: 200ms transform ease-in;
+    box-shadow: 6px 0 6px rgba(0,0,0,.1);
 }
 
 @media (max-width: 768px) {

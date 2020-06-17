@@ -9,7 +9,7 @@ import { Group } from 'src/app/groups/group';
     templateUrl: './task-form.component.html'
 })
 export class TaskFormComponent implements OnInit {
-    task: Task;
+    task: Task = { name: '', description: '', due: new Date(), isDone: false };
     hours: Array<number> = Array(24).fill(0).map((x,i) => i);
     minutes: Array<number> = Array(60).fill(0).map((x,i) => i);
     reminderOptions: Array<string> = ['1 minute', '2 minutes', '3 minutes', '5 minutes', '10 minutes', '20 minutes', '30 minutes', '1 hour', '2 hours', 'No reminder'];
@@ -21,8 +21,6 @@ export class TaskFormComponent implements OnInit {
         this.route.paramMap.subscribe((params: ParamMap) => {
             if (params.has('id')) {
                 this.taskService.getTask(parseInt(params.get('id'))).subscribe((task: Task) => this.task = task);
-            } else {
-                this.task = { name: '', description: '', due: new Date(), isDone: false };
             }
         });
 
