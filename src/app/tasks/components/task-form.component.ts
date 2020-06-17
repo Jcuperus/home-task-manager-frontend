@@ -28,7 +28,8 @@ export class TaskFormComponent implements OnInit {
     }
 
     onSave() {
-        this.taskService.saveTask(this.task).subscribe(() => this.router.navigate(['/tasks']));
+        console.log('save', this.task);
+        this.taskService.saveTask(this.task).subscribe(response => console.log(response));
     }
 
     onComplete() {

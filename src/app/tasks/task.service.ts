@@ -4,7 +4,7 @@ import { of, Observable } from 'rxjs';
 
 import { TASKS } from './mock-tasks';
 import { Group } from '../groups/group';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
 export class TaskService {
@@ -17,8 +17,18 @@ export class TaskService {
         return this.http.get<Task>(this.taskUrl + id, { responseType: 'json' });
     }
 
-    getTasks(): Observable<Task[]> {
-        return this.http.get<Task[]>(this.taskUrl);
+    getTasks(groups?: Group[]): Observable<Task[]> {
+        const options = {};
+        
+        if (groups && groups.length > 0) {
+            options['params'] = {
+                group: groups.map(group => group.id)
+            };
+        }
+
+        console.log(options);
+        
+        return this.http.get<Task[]>(this.taskUrl, options);
     }
 
     finishTasks() {
@@ -30,6 +40,10 @@ export class TaskService {
     }
 
     saveTask(task: Task): Observable<any> {
-        return of(task);
+        if (task.id) {
+            return this.http.put(this.taskUrl, task);
+        }
+
+        return this.http.post(this.taskUrl, task);
     }
 }
