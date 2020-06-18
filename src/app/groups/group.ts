@@ -1,4 +1,4 @@
-import { CheckboxItem } from '../common-components/checkbox-item';
+import { CheckboxItem } from '../common-components/checkbox-group/checkbox-item';
 
 export interface Group {
     id?: number;

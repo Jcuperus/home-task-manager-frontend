@@ -12,7 +12,7 @@
         <td>{{ task.dueDate | date: 'd-M-yyyy h:mm' }}</td>
         <td><div class="task-actions"><a [routerLink]="['./', task.id]"><i class="fas fa-wrench"></i></a></div></td>
     </tr>
-    <tr class="last" *ngIf="tasks.length == 0">
+    <tr class="last" *ngIf="tasks && tasks.length == 0">
         <td colspan="5">No tasks</td>
     </tr>
 </table>

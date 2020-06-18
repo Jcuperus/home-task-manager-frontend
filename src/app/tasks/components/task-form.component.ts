@@ -4,6 +4,8 @@ import { TaskService } from '../task.service';
 import { Task } from '../task';
 import { GroupsService } from 'src/app/groups/groups.service';
 import { Group } from 'src/app/groups/group';
+import { MessageService } from 'src/app/common-components/message-box/message.service';
+import { createMessage } from 'src/app/common-components/message-box/message';
 
 @Component({
     templateUrl: './task-form.component.html'
@@ -15,7 +17,12 @@ export class TaskFormComponent implements OnInit {
     reminderOptions: Array<string> = ['1 minute', '2 minutes', '3 minutes', '5 minutes', '10 minutes', '20 minutes', '30 minutes', '1 hour', '2 hours', 'No reminder'];
     groups: Group[];
 
-    constructor(private route: ActivatedRoute, private router: Router, private taskService: TaskService, private groupService: GroupsService) { }
+    constructor(
+        private route: ActivatedRoute, 
+        private router: Router, 
+        private taskService: TaskService, 
+        private groupService: GroupsService,
+        private messageService: MessageService) { }
 
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
@@ -25,11 +32,14 @@ export class TaskFormComponent implements OnInit {
         });
 
         this.groupService.getGroups().subscribe(groups => this.groups = groups);
+
+        this.messageService.setMessage(createMessage('success', 'cool boys inc'));
     }
 
     onSave() {
-        console.log('save', this.task);
-        this.taskService.saveTask(this.task).subscribe(response => console.log(response));
+        this.taskService.saveTask(this.task).subscribe(response => {
+            this.messageService.setMessage(createMessage('success', response.message))
+        });
     }
 
     onComplete() {

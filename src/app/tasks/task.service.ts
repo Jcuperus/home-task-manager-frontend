@@ -14,7 +14,7 @@ export class TaskService {
     constructor(private http: HttpClient) { }
 
     getTask(id: number): Observable<Task> {
-        return this.http.get<Task>(this.taskUrl + id, { responseType: 'json' });
+        return this.http.get<Task>(this.taskUrl + id);
     }
 
     getTasks(groups?: Group[]): Observable<Task[]> {
@@ -25,8 +25,6 @@ export class TaskService {
                 group: groups.map(group => group.id)
             };
         }
-
-        console.log(options);
         
         return this.http.get<Task[]>(this.taskUrl, options);
     }
@@ -34,16 +32,12 @@ export class TaskService {
     finishTasks() {
         
     }
-        
-    getGroupTasks(groups: Group[]): Observable<Task[]> {
-        return of(TASKS.filter(task => groups.filter(group => group.id == task.groupId).length > 0));
-    }
 
     saveTask(task: Task): Observable<any> {
         if (task.id) {
             return this.http.put(this.taskUrl, task);
         }
 
-        return this.http.post(this.taskUrl, task);
+        return this.http.post(this.taskUrl, task, {responseType: 'text'});
     }
 }

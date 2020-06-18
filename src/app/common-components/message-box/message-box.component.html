@@ -1,0 +1,4 @@
+<div class="container" *ngIf="message" [ngStyle]="message.style">
+    <span [innerHtml]="message.icon"></span>
+    <h3>{{ message.message }}</h3>
+</div>
