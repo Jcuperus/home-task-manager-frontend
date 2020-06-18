@@ -8,6 +8,6 @@
             <label for="password">password</label>
             <input type="password" id="password" class="form-component" name="password" [(ngModel)]="password" placeholder="password">
         </div>
-        <button type="submit" class="button primary">Login</button>
+        <button (click)="login()" type="submit" class="button primary">Login</button>
     </form>
 </div>

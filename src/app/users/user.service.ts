@@ -1,12 +1,14 @@
-import {Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { User } from './user';
 import { of, Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class TokenService {
+export class UserService {
 
-    tokenUrl = "http://localhost:8000/users/";
+    userUrl = "http://localhost:8080/users/";
 
     constructor(private http: HttpClient) {  }
+    
 }
