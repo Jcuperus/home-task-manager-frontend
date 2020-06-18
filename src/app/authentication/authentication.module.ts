@@ -1,10 +1,16 @@
 import { NgModule } from "@angular/core";
-import { AuthenticationRoutingModule } from './authentication-routing.module';
-import { LoginComponent } from './login.component';
-import { RegisterComponent } from './register.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import { AuthenticationRoutingModule } from './authentication-routing.module';
+
+import { LoginComponent } from './login.component';
 import { LoginService } from './login.service';
+
+import { RegisterComponent } from './register.component';
+import { RegisterService } from './register.service';
+
+
 
 @NgModule({
     declarations: [
@@ -17,7 +23,8 @@ import { LoginService } from './login.service';
         AuthenticationRoutingModule
     ],
     providers: [
-        LoginService
+        LoginService,
+        RegisterService
     ]
 })
 export class AuthenticationModule { }

@@ -10,5 +10,6 @@ export class UserService {
     userUrl = "http://localhost:8080/users/";
 
     constructor(private http: HttpClient) {  }
+
     
 }

@@ -1,4 +1,4 @@
-import { Injectable, OnInit, SystemJsNgModuleLoader } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 
 import { HttpClient, HttpResponse } from '@angular/common/http';
@@ -31,14 +31,6 @@ export class LoginService{
         }
         return "No token found";
     }
-
-    // public validateUser(name: String, pass: String): boolean{
-    //     this.http.post<boolean>(this.loginUrl + "val", {username: name, password: pass})
-    //     .subscribe(resp => {
-    //         console.log(resp);
-    //     });
-    //     return null;
-    // }
     
     public getUser(id: number): Observable<User>{
         if(id){
