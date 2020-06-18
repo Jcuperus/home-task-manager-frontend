@@ -22,6 +22,6 @@ export class TasksComponent implements OnInit {
     }
 
     onGroupsChange(selectedGroups: Group[]) {
-        this.taskService.getGroupTasks(selectedGroups).subscribe(tasks => this.tasks = tasks);
+        this.taskService.getTasks(selectedGroups).subscribe(tasks => this.tasks = tasks);
     }
 }
