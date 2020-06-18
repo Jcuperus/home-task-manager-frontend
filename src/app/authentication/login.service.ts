@@ -5,7 +5,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { User } from '../users/user';
 import { templateJitUrl } from '@angular/compiler';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 
 @Injectable()

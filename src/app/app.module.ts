@@ -10,6 +10,7 @@ import { CommonComponentsModule } from './common-components/common-components.mo
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthInterceptor } from './authentication/auth-interceptor';
+import { ErrorInterceptor } from './error-interceptor';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AuthInterceptor } from './authentication/auth-interceptor';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

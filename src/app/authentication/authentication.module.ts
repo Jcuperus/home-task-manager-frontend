@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 
+import { CommonComponentsModule } from '../common-components/common-components.module';
+
 import { LoginComponent } from './login.component';
 import { LoginService } from './login.service';
 
@@ -20,7 +22,8 @@ import { RegisterService } from './register.service';
     imports: [
         CommonModule,
         FormsModule,
-        AuthenticationRoutingModule
+        AuthenticationRoutingModule,
+        CommonComponentsModule
     ],
     providers: [
         LoginService,
