@@ -6,6 +6,7 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthenticationService } from './authentication.service';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
+import { AuthenticatedGuard } from './authenticated-guard';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { RegisterComponent } from './register.component';
         CommonComponentsModule
     ],
     providers: [
-        AuthenticationService
+        AuthenticationService,
+        AuthenticatedGuard
     ]
 })
 export class AuthenticationModule { }
