@@ -6,11 +6,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthInterceptor } from './authentication/auth-interceptor';
 import { CommonComponentsModule } from './common-components/common-components.module';
+import { BackendInterceptor } from './common-http/backend-interceptor';
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
-import { AuthInterceptor } from './authentication/auth-interceptor';
-import { ErrorInterceptor } from './error-interceptor';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 
 @NgModule({
@@ -25,11 +26,12 @@ import { ErrorInterceptor } from './error-interceptor';
     HttpClientModule,
     AppRoutingModule,
     CommonComponentsModule,
+    AuthenticationModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,8 @@
+import { Group } from '../groups/groups';
+
 export interface Task {
     id?: number;
-    groupId?: number;
+    group: Group;
     name: string;
     description: string;
     dueDate: Date;

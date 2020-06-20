@@ -1,20 +1,17 @@
 import { Injectable } from "@angular/core";
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Message } from './message';
 
 @Injectable()
 export class MessageService {
-    currentMessage: Message;
-    
     private messageSource = new Subject<Message>();
-    messageChanged$ = this.messageSource.asObservable(); 
     
-    getMessage(): Message {
-        return this.currentMessage;
+    getMessage(): Observable<Message> {
+        return this.messageSource.asObservable();
     }
 
     setMessage(message: Message) {
-        this.currentMessage = message;
+        console.log('hier', message);
         this.messageSource.next(message);
     }
 }

@@ -1,18 +1,11 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
 import { FormsModule } from '@angular/forms';
-
-import { AuthenticationRoutingModule } from './authentication-routing.module';
-
 import { CommonComponentsModule } from '../common-components/common-components.module';
-
+import { AuthenticationRoutingModule } from './authentication-routing.module';
+import { AuthenticationService } from './authentication.service';
 import { LoginComponent } from './login.component';
-import { LoginService } from './login.service';
-
 import { RegisterComponent } from './register.component';
-import { RegisterService } from './register.service';
-
-
 
 @NgModule({
     declarations: [
@@ -26,8 +19,7 @@ import { RegisterService } from './register.service';
         CommonComponentsModule
     ],
     providers: [
-        LoginService,
-        RegisterService
+        AuthenticationService
     ]
 })
 export class AuthenticationModule { }

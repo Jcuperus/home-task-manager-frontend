@@ -11,7 +11,7 @@ import { createMessage } from 'src/app/common-components/message-box/message';
     templateUrl: './task-form.component.html'
 })
 export class TaskFormComponent implements OnInit {
-    task: Task = { name: '', description: '', dueDate: new Date(), isDone: false };
+    task: Task = { group: null, name: '', description: '', dueDate: new Date(), isDone: false };
     hours: Array<number> = Array(24).fill(0).map((x,i) => i);
     minutes: Array<number> = Array(60).fill(0).map((x,i) => i);
     reminderOptions: Array<string> = ['1 minute', '2 minutes', '3 minutes', '5 minutes', '10 minutes', '20 minutes', '30 minutes', '1 hour', '2 hours', 'No reminder'];
@@ -37,9 +37,11 @@ export class TaskFormComponent implements OnInit {
     }
 
     onSave() {
-        this.taskService.saveTask(this.task).subscribe(response => {
-            this.messageService.setMessage(createMessage('success', response.message))
-        });
+        console.log(this.task);
+
+        // this.taskService.saveTask(this.task).subscribe(response => {
+        //     this.messageService.setMessage(createMessage('success', response.message))
+        // });
     }
 
     onComplete() {

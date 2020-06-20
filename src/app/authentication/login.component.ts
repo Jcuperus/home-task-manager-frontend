@@ -1,26 +1,23 @@
-import { Component} from "@angular/core";
+import { Component } from "@angular/core";
+import { AuthenticationService } from './authentication.service';
+import { Credentials } from './credentials';
+import { MessageService } from '../common-components/message-box/message.service';
+import { createMessage } from '../common-components/message-box/message';
 
-import { LoginService } from "./login.service";
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 
 @Component({
     templateUrl: './login.component.html'
 })
 export class LoginComponent {  
 
-    name: String;
-    password: String;
+    credentials: Credentials = { username: null, password: null };
 
-    constructor(private log: LoginService) {}
+    constructor(private authenticationService: AuthenticationService, private messageService: MessageService) {}
 
-    login(){
-        this.log.login(this.name, this.password).pipe(
-            catchError(errorResp => {
-                console.log(errorResp);
-                return throwError("Something happened")
-            })
-        )
-        .subscribe();
+    login() {
+        this.authenticationService.login(this.credentials).subscribe(
+            response => this.messageService.setMessage(createMessage('success', response.message)),
+            error => this.messageService.setMessage(createMessage('error', error))
+        );
     }
 }

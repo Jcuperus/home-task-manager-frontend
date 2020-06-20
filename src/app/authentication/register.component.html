@@ -1,14 +1,15 @@
+<app-message-box></app-message-box>
 <div class="container">
+    <h1>Register</h1>
     <form>
         <div class="form-group">
-            <label for="userName">username</label>
-            <input type="text" id="username" class="form-component" name="username" [(ngModel)]="name">
+            <label for="userName">Username</label>
+            <input type="text" id="username" class="form-component" name="username" [(ngModel)]="credentials.username" placeholder="Username">
         </div>
         <div class="form-group">
-            <label for="password">password</label>
-            <input type="password" id="password" class="form-component" name="password" [(ngModel)]="password" required minlength="6">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-component" name="password" [(ngModel)]="credentials.password" placeholder="Password" required minlength="6">
         </div>
-        <button (click)="create()" type="submit" class="button primary">Login</button>
+        <button (click)="register()" type="submit" class="button primary">Login</button>
     </form>
-   
 </div>
