@@ -1,0 +1,7 @@
+<span class="unauthenticated" *ngIf="!currentUser; else authenticatedBlock">
+    <a routerLink="/auth/login">Login</a>
+    <a routerLink="/auth/register">Register</a>
+</span>
+<ng-template #authenticatedBlock>
+    <a>{{ currentUser.username }}</a>
+</ng-template>

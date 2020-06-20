@@ -56,6 +56,10 @@ nav .mobile-nav {
     z-index: -1;
 }
 
+nav .user-panel {
+    position: absolute;
+}
+
 @media (max-width: 768px) {
     nav > a.nav-link {
         display: none;

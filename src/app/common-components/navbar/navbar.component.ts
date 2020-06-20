@@ -8,10 +8,7 @@ import { Component } from "@angular/core";
 export class NavbarComponent { 
     links = [
         { route: '/tasks', title: 'Tasks' },
-        { route: '/groups', title: 'Groups' },
-        { route: '/auth/register', title: 'Register' },
-        { route: '/more-links', title: 'More Links' },
-        { route: '/even-more-links', title: 'Even More Links' }
+        { route: '/groups', title: 'Groups' }
     ];
 
     mobileNavOpen = false;
