@@ -12,6 +12,7 @@ import { BackendInterceptor } from './common-http/backend-interceptor';
 import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { ErrorInterceptor } from './common-http/error-interceptor';
 
 
 @NgModule({

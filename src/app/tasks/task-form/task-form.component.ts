@@ -32,16 +32,12 @@ export class TaskFormComponent implements OnInit {
         });
 
         this.groupService.getGroups().subscribe(groups => this.groups = groups);
-
-        this.messageService.setMessage(createMessage('success', 'cool boys inc'));
     }
 
     onSave() {
-        console.log(this.task);
-
-        // this.taskService.saveTask(this.task).subscribe(response => {
-        //     this.messageService.setMessage(createMessage('success', response.message))
-        // });
+        this.taskService.saveTask(this.task).subscribe(response => {
+            this.messageService.setMessage(createMessage('success', response.message))
+        });
     }
 
     onComplete() {

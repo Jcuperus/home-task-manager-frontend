@@ -3,9 +3,12 @@ import { Group } from './groups';
 import { of, Observable } from 'rxjs';
 import { groups} from './mock-groups';
 import { User } from './user';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class GroupsService{
+export class GroupsService {
+
+    constructor(private http: HttpClient) {}
 
     getGroup(id: number): Observable<Group>{
         return of(groups[id]);
@@ -16,7 +19,7 @@ export class GroupsService{
     }
 
     getGroups(): Observable<Group[]>{
-        return of(groups);
+        return this.http.get<Group[]>("groups");
     }
 
     addGroup(group: Group){

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 
-import { TasksComponent } from './components/tasks.component';
-import { TaskFormComponent } from './components/task-form.component';
+import { TasksComponent } from './tasks.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 const tasksRoutes: Routes = [
     { path: 'create', component: TaskFormComponent, data: { title: 'Create task' } },

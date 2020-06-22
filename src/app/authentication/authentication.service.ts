@@ -4,7 +4,7 @@ import { Observable, OperatorFunction, throwError, of } from 'rxjs';
 import { Credentials } from './credentials';
 import { MessageResponse } from '../common-http/message-response';
 import { map, catchError } from 'rxjs/operators';
-import { User } from '../groups/user';
+import { User } from '../users/user';
 
 
 @Injectable()
@@ -40,14 +40,15 @@ export class AuthenticationService {
         
         if (currentUser && currentUser instanceof User) {
             return of(currentUser);
-        } else {
+        } else if (this.getToken() != null) {
             return this.http.get('users/current')
                 .pipe(map((user: User) => {
-                    console.log(user);
                     localStorage.setItem(this.currentUserKey, JSON.stringify(user));
                     return user;
                 }));
         }
+
+        return of(null);
     }
 
     getToken(): string {

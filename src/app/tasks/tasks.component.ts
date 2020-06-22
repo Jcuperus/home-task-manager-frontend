@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Task } from '../task';
-import { TaskService } from '../task.service';
+import { Task } from './task';
+import { TaskService } from './task.service';
 import { GroupsService } from 'src/app/groups/groups.service';
 import { GroupCheckboxItemAdapter, Group } from 'src/app/groups/group';
 

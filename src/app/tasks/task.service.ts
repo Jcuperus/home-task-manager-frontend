@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Group } from '../groups/group';
 import { Task } from './task';
+import { MessageResponse } from '../common-http/message-response';
+import { map } from 'rxjs/operators';
+import { TasksListComponent } from './tasks-list/tasks-list.component';
 
 @Injectable()
 export class TaskService {
@@ -10,7 +13,11 @@ export class TaskService {
     constructor(private http: HttpClient) { }
 
     getTask(id: number): Observable<Task> {
-        return this.http.get<Task>('tasks/' + id);
+        return this.http.get<Task>('tasks/' + id)
+            .pipe(map(task => {
+                if (typeof task.dueDate == "string") task.dueDate = new Date(task.dueDate);
+                return task;
+            }));
     }
 
     getTasks(groups?: Group[]): Observable<Task[]> {
@@ -22,18 +29,25 @@ export class TaskService {
             };
         }
         
-        return this.http.get<Task[]>('tasks/', options);
+        return this.http.get<Task[]>('tasks/', options)
+            .pipe(map(tasks => {
+                tasks.map(task => {
+                    if (typeof(task.dueDate) == "string") task.dueDate = new Date(task.dueDate);
+                })
+                
+                return tasks;
+            }));
     }
 
     finishTasks() {
         
     }
 
-    saveTask(task: Task): Observable<any> {
+    saveTask(task: Task): Observable<MessageResponse> {
         if (task.id) {
-            return this.http.put('tasks/', task);
+            return this.http.put<MessageResponse>('tasks/', task);
         }
 
-        return this.http.post('tasks/', task, {responseType: 'text'});
+        return this.http.post<MessageResponse>('tasks/', task);
     }
 }

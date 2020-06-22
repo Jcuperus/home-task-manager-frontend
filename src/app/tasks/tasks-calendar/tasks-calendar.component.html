@@ -1,0 +1,4 @@
+<div *ngFor="let taskGroup of groupedTasks | keyvalue" class="task-group">
+    <p>{{ taskGroup.key | date }}</p>
+    <app-tasks-list [tasks]="taskGroup.value"></app-tasks-list>
+</div>

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
-import { User } from 'src/app/groups/user';
+import { User } from 'src/app/users/user';
 
 @Component({
     selector: 'app-nav-user',
@@ -8,7 +8,7 @@ import { User } from 'src/app/groups/user';
     styleUrls: ['./nav-user.component.css']
 })
 export class NavUserComponent {
-    currentUser: User;
+    currentUser: User = new User();
 
     constructor(private authenticationService: AuthenticationService) {
         authenticationService.getCurrentUser().subscribe(user => this.currentUser = user);
