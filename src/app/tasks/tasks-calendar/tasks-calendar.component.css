@@ -1,5 +1,11 @@
 :host {
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 15px;
+}
+
+@media (max-width: 1200px) {
+    :host {
+        grid-template-columns: 1fr;
+    }
 }
