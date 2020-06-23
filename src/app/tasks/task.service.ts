@@ -6,11 +6,13 @@ import { Task } from './task';
 import { MessageResponse } from '../common-http/message-response';
 import { map } from 'rxjs/operators';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
+import { MessageService } from '../common-components/message-box/message.service';
+import { createMessage } from '../common-components/message-box/message';
 
 @Injectable()
 export class TaskService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private messageService: MessageService) { }
 
     getTask(id: number): Observable<Task> {
         return this.http.get<Task>('tasks/' + id)
@@ -39,8 +41,13 @@ export class TaskService {
             }));
     }
 
-    finishTasks() {
+    finishTasks(id: number) {
         
+    }
+
+    deleteTask(id: number) {
+        this.http.post('tasks/' + id, id).
+        subscribe(resp => this.getTasks());
     }
 
     saveTask(task: Task): Observable<MessageResponse> {
