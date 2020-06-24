@@ -4,4 +4,5 @@
 </span>
 <ng-template #authenticatedBlock>
     <a>{{ currentUser.username }}</a>
+    <a (click)="logout()">Logout</a>
 </ng-template>
