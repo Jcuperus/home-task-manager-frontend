@@ -14,6 +14,8 @@ export class MessageBoxComponent {
         this.messageService.getMessage().subscribe(message => {
             console.log(message);
             this.message = message;
+            setTimeout(time => this.message = null, 5000);
         });
+        
     }
 }

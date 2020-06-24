@@ -17,9 +17,12 @@ export class LoginComponent {
 
     login() {
         this.authenticationService.login(this.credentials).subscribe(
-            response => this.messageService.setMessage(createMessage('success', response.message)),
+            response => { 
+                this.messageService.setMessage(createMessage('success', response.message)) 
+                this.router.navigate(['../'])
+            },
             error => this.messageService.setMessage(createMessage('error', error))
         );
-        this.router.navigate(['../']);
+        
     }
 }

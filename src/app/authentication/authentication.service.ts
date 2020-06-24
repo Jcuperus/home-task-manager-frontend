@@ -5,6 +5,8 @@ import { Credentials } from './credentials';
 import { MessageResponse } from '../common-http/message-response';
 import { map, catchError } from 'rxjs/operators';
 import { User } from '../users/user';
+import { MessageService } from '../common-components/message-box/message.service';
+import { createMessage } from '../common-components/message-box/message';
 
 
 @Injectable()
@@ -13,7 +15,7 @@ export class AuthenticationService {
     tokenKey = 'Authorization';
     currentUserKey = 'currentUser';
 
-    constructor(private http: HttpClient) {  }
+    constructor(private http: HttpClient, private messageService: MessageService) {  }
     
     login(credentials: Credentials): Observable<MessageResponse> {
         return this.http.post<any>("login", credentials, { observe: 'response' })
@@ -49,6 +51,16 @@ export class AuthenticationService {
         }
 
         return of(null);
+    }
+
+    checkToken(){
+        if(localStorage.getItem("Authorization")){
+             this.http.post("users/check", localStorage.getItem("Authorization")).
+             subscribe(
+                 resp => this.messageService.setMessage(createMessage('success', resp.toString())),
+                 error => this.messageService.setMessage(createMessage('error', error))
+                 );
+        }
     }
 
     getToken(): string {
