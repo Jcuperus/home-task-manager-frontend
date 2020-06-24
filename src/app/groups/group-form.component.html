@@ -1,22 +1,19 @@
 <div class='container'>
-    <form [formGroup]='memberAddForm' (ngSubmit)='onSave()'>
-            <div class='form-group'>
-                <label for='nameOfGroup'>Name of group</label>
-                <input type='text' id='name' class='form-component' name='groupName' formControlName='name' placeholder='Name of group'>
-            </div>
-            <div class='form-group'>
-                <div formGroupName='formRow'>
-                    <div formArrayName='members'>
-                        <label for='members'>Add members</label>
-                        <div *ngFor='let member of members.controls; let i=index'>
-                            <input type='text' id='member' class='form-component' name='member' [formControlName]='i'>
-                        </div>
-                        <button type="button" (click)="addMember()">Add member</button>
-                        <button type="button" (click)="removeMember()">Remove member</button>
-                    </div>
-                </div>
-            </div>
-            <button type='submit' class='button primary'>Save</button>
-            <a routerLink='/groups' class="button">Cancel</a>
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-component" name="name" [(ngModel)]="group.name" placeholder="Name">
+        </div>
+        <div class='form-group'>
+            <label for='members'>Add members</label>
+            <input type="text" id="members" class="form-component" name="members" [(ngModel)]="newMember" placeholder="Add member...">
+            <button class="button primary" (click)="addMember()">Add</button>
+        </div>
+        <div *ngFor='let user of group.users; let i = index'>
+            <p>{{user.username}}</p>
+            <button type='button' class='button primary' (click)='removeMember(index)'>Remove</button>
+        </div>
+        <button type='submit' class='button primary' (click)='onSave()'>Save</button>
+        <a routerLink='/groups' class="button">Cancel</a>
     </form>
 </div>

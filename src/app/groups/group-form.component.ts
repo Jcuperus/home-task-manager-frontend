@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Group } from './group';
 import { GroupsService } from './groups.service';
-import { Group } from './groups';
-import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
-import { User } from './user';
 
 @Component({
     templateUrl: './group-form.component.html'
@@ -11,38 +10,27 @@ import { User } from './user';
 export class GroupFormComponent implements OnInit {
     group: Group;
     memberAddForm: FormGroup;
-    constructor(private route: ActivatedRoute, private groupservice: GroupsService, private fb: FormBuilder) { }
+    newMember: string;
+    constructor(private route: ActivatedRoute, private groupservice: GroupsService) { }
     ngOnInit() {
-        this.memberAddForm = this.fb.group({
-            name: this.fb.control(''),
-            formRow: this.fb.group({
-                members: this.fb.array([
-                    this.fb.control('')
-                ])
-            })
-        });
         this.route.paramMap.subscribe((params: ParamMap) => {
             if (params.has('id')) {
                 this.groupservice.getGroup(parseInt(params.get('id'))).subscribe((group: Group) => this.group = group);
             } else {
-                this.group = {id: 0, managers: [new User('default','default')], group: [], name: ''};
+                this.group = {id: 0, name: '', users: []};
             }
         });
     }
 
-    get members(){
-        return this.memberAddForm.get('formRow').get('members') as FormArray;
-    }
-
     addMember(){
-        this.members.push(this.fb.control(''));
+        this.groupservice.getUserByName(this.newMember).subscribe(user => this.group.users.push(user));
     }
 
-    removeMember(){
-        this.members.removeAt(this.members.length-1);
+    removeMember(index: number){
+        this.group.users.splice(index, 1);
     }
 
     onSave(){
-            // stuur signaal naar backend als die er is
+        this.groupservice.saveGroup(this.group).subscribe(response => console.log(response));
     }
 }
