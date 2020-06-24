@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { User } from '../users/user';
 import { Group } from './group';
 import { GroupsService } from './groups.service';
+import { MessageService } from '../common-components/message-box/message.service';
+import { createMessage } from '../common-components/message-box/message';
 
 @Component({
     templateUrl: './group-form.component.html'
@@ -11,7 +14,8 @@ export class GroupFormComponent implements OnInit {
     group: Group;
     memberAddForm: FormGroup;
     newMember: string;
-    constructor(private route: ActivatedRoute, private groupservice: GroupsService) { }
+    currentUser: User;
+    constructor(private route: ActivatedRoute, private groupservice: GroupsService, private router: Router, private messageService: MessageService) {}
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
             if (params.has('id')) {
@@ -20,10 +24,19 @@ export class GroupFormComponent implements OnInit {
                 this.group = {id: 0, name: '', users: []};
             }
         });
+        this.setCurrentUser();
+    }
+
+    setCurrentUser(){
+        this.groupservice.getCurrentUser().subscribe(user => this.currentUser = user);
     }
 
     addMember(){
-        this.groupservice.getUserByName(this.newMember).subscribe(user => this.group.users.push(user));
+        this.groupservice.getUserByName(this.newMember).subscribe(user => {
+            if(user.username != this.currentUser.username){
+                this.group.users.push(user);
+            }
+        });
     }
 
     removeMember(index: number){
@@ -32,5 +45,6 @@ export class GroupFormComponent implements OnInit {
 
     onSave(){
         this.groupservice.saveGroup(this.group).subscribe(response => console.log(response));
+        this.router.navigate(['/tasks']);
     }
 }

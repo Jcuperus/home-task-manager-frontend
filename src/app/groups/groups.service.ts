@@ -35,6 +35,10 @@ export class GroupsService {
         return this.http.post('groups', group);
     }
 
+    getCurrentUser(): Observable<User>{
+        return this.http.get<User>('users/current');
+    }
+
     getUserByName(username: string): Observable<User>{
         return this.http.get<User>('users/name/' + username);
     }

@@ -1,6 +1,9 @@
 <app-sidebar>
     <h3>Groups</h3>
     <app-checkbox-group [checkboxItems]="groups" (onSelectionChange)="onGroupsChange($event)">
+        <li>
+            <a routerLink="/groups/create" class="button primary">New group</a>
+        </li>
     </app-checkbox-group>
 </app-sidebar>
 <app-sidebar-content>
