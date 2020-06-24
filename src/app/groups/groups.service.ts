@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Group } from './groups';
+import { Group } from './group';
 import { of, Observable } from 'rxjs';
 import { groups} from './mock-groups';
-import { User } from './user';
+import { User } from '../users/user';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
 
 @Injectable()
 export class GroupsService {
@@ -11,7 +13,7 @@ export class GroupsService {
     constructor(private http: HttpClient) {}
 
     getGroup(id: number): Observable<Group>{
-        return of(groups[id]);
+        return this.http.get<Group>('groups/' + id).pipe(map(group => group));
     }
 
     getMemberOfGroup(group: number, id: number): Observable<Group>{
@@ -21,13 +23,20 @@ export class GroupsService {
     getGroups(): Observable<Group[]>{
         return this.http.get<Group[]>("groups");
     }
-
-    addGroup(group: Group){
-        groups.push(group);
+    getUserFromDb(value: string): Observable<User>{
+        return this.http.get<User>('/users/'+value);
     }
 
-    addMemberToGroup(group: Group, member: User){
-        groups[groups.indexOf(group)].group.push(member);
+    addGroup(group: Array<string>) : Observable<Group> {
+        return this.http.put<Group>('groups', group);
+    }
+
+    saveGroup(group: Group): Observable<any>{
+        return this.http.post('groups', group);
+    }
+
+    getUserByName(username: string): Observable<User>{
+        return this.http.get<User>('users/name/' + username);
     }
 
     joinGroupMembers(id: number){

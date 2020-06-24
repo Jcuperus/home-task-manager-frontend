@@ -1,8 +1,10 @@
 import { CheckboxItem } from '../common-components/checkbox-group/checkbox-item';
+import { User } from '../users/user';
 
 export interface Group {
     id?: number;
     name: string;
+    users?: User[];
 }
 
 export class GroupCheckboxItemAdapter implements Group, CheckboxItem {
