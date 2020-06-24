@@ -11,9 +11,9 @@
         </div>
         <div *ngFor='let user of group.users; let i = index'>
             <p>{{user.username}}</p>
-            <button type='button' class='button primary' (click)='removeMember(index)'>Remove</button>
+            <a type='button' class='button primary' (click)='removeMember(i)'>Remove</a>
         </div>
         <button type='submit' class='button primary' (click)='onSave()'>Save</button>
-        <a routerLink='/groups' class="button">Cancel</a>
+        <a routerLink='/tasks' class="button">Cancel</a>
     </form>
 </div>
