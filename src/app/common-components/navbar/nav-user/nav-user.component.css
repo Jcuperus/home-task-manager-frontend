@@ -3,6 +3,11 @@
     align-items: center;
 }
 
+.authenticated {
+    display: flex;
+    align-items: center;
+}
+
 a {
     display: flex;
     align-items: center;

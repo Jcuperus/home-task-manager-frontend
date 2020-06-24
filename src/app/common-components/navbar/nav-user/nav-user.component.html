@@ -3,6 +3,8 @@
     <a routerLink="/auth/register">Register</a>
 </span>
 <ng-template #authenticatedBlock>
-    <a>{{ currentUser.username }}</a>
-    <a (click)="logout()">Logout</a>
+    <span class="authenticated">
+        <a>{{ currentUser.username }}</a>
+        <a (click)="logout()">Logout</a>
+    </span>
 </ng-template>
