@@ -39,8 +39,4 @@ export class TaskFormComponent implements OnInit {
             this.messageService.setMessage(createMessage('success', response.message))
         });
     }
-
-    onComplete() {
-        
-    }
 }

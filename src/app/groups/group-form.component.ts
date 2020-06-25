@@ -19,12 +19,19 @@ export class GroupFormComponent implements OnInit {
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
             if (params.has('id')) {
-                this.groupservice.getGroup(parseInt(params.get('id'))).subscribe((group: Group) => this.group = group);
+                this.groupservice.getGroup(parseInt(params.get('id'))).subscribe((group: Group) => {
+                    this.group = group;
+                    this.setUsersOfGroup();
+                });
             } else {
                 this.group = {id: 0, name: '', users: []};
             }
         });
         this.setCurrentUser();
+    }
+
+    setUsersOfGroup(){
+        this.groupservice.getGroup(parseInt(this.route.snapshot.paramMap.get('id'))).subscribe(users => this.group.users = users.users);
     }
 
     setCurrentUser(){

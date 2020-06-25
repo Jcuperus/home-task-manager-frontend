@@ -41,10 +41,6 @@ export class TaskService {
             }));
     }
 
-    finishTasks(id: number) {
-        
-    }
-
     deleteTask(id: number) {
         this.http.post('tasks/' + id, id).
         subscribe(resp => this.getTasks());

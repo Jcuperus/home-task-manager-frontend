@@ -12,7 +12,10 @@ export class GroupsService {
     constructor(private http: HttpClient) {}
 
     getGroup(id: number): Observable<Group>{
-        return this.http.get<Group>('groups/' + id).pipe(map(group => group));
+        return this.http.get<Group>('groups/' + id);
+    }
+    getGroupMembers(id: number): Observable<Group>{
+        return this.http.get<Group>('groups/' + id + '/users');
     }
 
     getGroups(): Observable<Group[]>{
