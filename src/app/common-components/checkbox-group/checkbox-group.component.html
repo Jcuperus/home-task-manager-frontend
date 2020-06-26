@@ -3,6 +3,7 @@
         <a [routerLink]="['/groups/', checkboxItem.id]"><i class="fas fa-wrench"></i></a>
         <input type="checkbox" [(ngModel)]="checkboxItem.checked" (change)="onSelect(checkboxItem)" [id]="'checkbox' + checkboxItem.value">
         <label [for]="'checkbox' + checkboxItem.value">{{ checkboxItem.label }}</label>
+        <app-group-leave-button></app-group-leave-button>
     </li>
     <ng-content></ng-content>
 </ul>

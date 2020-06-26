@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { CheckboxItem } from './checkbox-item';
+import { User } from 'src/app/users/user';
 
 @Component({
     selector: 'app-checkbox-group',
