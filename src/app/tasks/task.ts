@@ -1,4 +1,4 @@
-import { Group } from '../groups/groups';
+import { Group } from '../groups/group';
 
 export interface Task {
     id?: number;

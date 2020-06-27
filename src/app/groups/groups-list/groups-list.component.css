@@ -1,0 +1,7 @@
+li .actions {
+    float: right;
+}
+
+li .actions i {
+    margin-left: 5px;
+}

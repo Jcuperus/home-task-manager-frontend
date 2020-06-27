@@ -1,11 +1,10 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { CheckboxItem } from './checkbox-item';
-import { User } from 'src/app/users/user';
 
 @Component({
     selector: 'app-checkbox-group',
     templateUrl: './checkbox-group.component.html',
-    styles: ['ul { list-style-type: none; padding-left: 10px; }']
+    styleUrls: ['./checkbox-group.component.css']
 })
 export class CheckboxGroupComponent {
     @Input() checkboxItems: CheckboxItem[];
