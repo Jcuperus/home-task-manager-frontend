@@ -23,6 +23,10 @@ nav a {
     font-size: 14px;
 }
 
+nav i.fas {
+    color: #ffffff;
+}
+
 nav a i {
     margin-right: 20px;
 }

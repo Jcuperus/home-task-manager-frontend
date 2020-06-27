@@ -1,4 +1,5 @@
-<div class='container'>
+<div class="container">
+    <app-page-title></app-page-title>
     <form>
         <div class="form-group">
             <label for="name">Name</label>
@@ -6,12 +7,17 @@
         </div>
         <div class='form-group'>
             <label for='members'>Add members</label>
-            <input type="text" id="members" class="form-component" name="members" [(ngModel)]="newMember" placeholder="Add member...">
-            <button class="button primary" (click)="addMember()">Add</button>
+            <div class="input-button-combo">
+                <input type="text" id="members" class="form-component" name="members" [(ngModel)]="newMember" placeholder="Add member...">
+                <button class="button primary" (click)="addMember()">Add</button>
+            </div>
         </div>
-        <div *ngFor='let user of group.users; let i = index'>
-            <p>{{user.username}}</p>
-            <a type='button' class='button primary' (click)='removeMember(i)'>Remove</a>
+        <div class="group-users">
+            <h4>Group members</h4>
+            <div class="user" *ngFor='let user of group.users; let i = index'>
+                <span class="username">{{user.username}}</span>
+                <a (click)='removeMember(i)'><i class="fas fa-trash"></i></a>
+            </div>
         </div>
         <button type='submit' class='button primary' (click)='onSave()'>Save</button>
         <a routerLink='/tasks' class="button">Cancel</a>

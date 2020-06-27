@@ -4,9 +4,12 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { User } from '../../users/user';
 import { Group } from '../group';
 import { GroupsService } from '../groups.service';
+import { MessageService } from 'src/app/common-components/message-box/message.service';
+import { createMessage } from 'src/app/common-components/message-box/message';
 
 @Component({
-    templateUrl: './group-form.component.html'
+    templateUrl: './group-form.component.html',
+    styleUrls: ['./group-form.component.css']
 })
 export class GroupFormComponent implements OnInit {
     group: Group = {id: 0, name: '', users: []};
@@ -14,7 +17,7 @@ export class GroupFormComponent implements OnInit {
     newMember: string;
     currentUser: User;
 
-    constructor(private route: ActivatedRoute, private groupservice: GroupsService, private router: Router) {}
+    constructor(private groupservice: GroupsService, private messageService: MessageService, private route: ActivatedRoute, private router: Router) {}
     
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
@@ -32,11 +35,14 @@ export class GroupFormComponent implements OnInit {
     }
 
     addMember(){
-        this.groupservice.getUserByName(this.newMember).subscribe(user => {
-            if(user.username != this.currentUser.username){
-                this.group.users.push(user);
-            }
-        });
+        this.groupservice.getUserByName(this.newMember).subscribe(
+            user => {
+                if(user.username != this.currentUser.username){
+                    this.group.users.push(user);
+                }
+            },
+            error => this.messageService.setMessage(createMessage("error", "Could not find user"))
+        );
     }
 
     removeMember(index: number){

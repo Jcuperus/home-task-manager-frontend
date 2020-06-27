@@ -5,6 +5,7 @@ import { GroupFormComponent } from './group-form/group-form.component';
 import { GroupRoutingModule } from './group-routing.module';
 import { GroupsService } from './groups.service';
 import { GroupsListComponent } from './groups-list/groups-list.component';
+import { CommonComponentsModule } from '../common-components/common-components.module';
 
 
 @NgModule({
@@ -13,10 +14,10 @@ import { GroupsListComponent } from './groups-list/groups-list.component';
         GroupsListComponent
     ],
     imports: [
-        CommonModule, 
+        CommonModule,
         FormsModule,
-        ReactiveFormsModule, 
-        GroupRoutingModule
+        GroupRoutingModule,
+        CommonComponentsModule
     ],
     exports: [
         GroupsListComponent
