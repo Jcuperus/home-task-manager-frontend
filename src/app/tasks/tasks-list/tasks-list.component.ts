@@ -12,7 +12,7 @@ export class TasksListComponent {
 
     constructor(private task: TaskService) {  }
 
-    test(id){
+    delete(id){
         this.task.deleteTask(id);
     }
     

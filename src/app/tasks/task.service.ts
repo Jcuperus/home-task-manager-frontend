@@ -8,11 +8,13 @@ import { map } from 'rxjs/operators';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
 import { MessageService } from '../common-components/message-box/message.service';
 import { createMessage } from '../common-components/message-box/message';
+import { TasksComponent } from './tasks.component';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class TaskService {
 
-    constructor(private http: HttpClient, private messageService: MessageService) { }
+    constructor(private http: HttpClient, private messageService: MessageService, private router: Router) { }
 
     getTask(id: number): Observable<Task> {
         return this.http.get<Task>('tasks/' + id)
@@ -42,7 +44,10 @@ export class TaskService {
     }
 
     finishTasks(id: number) {
-        
+        this.http.put('tasks/' + id, id).
+        subscribe(resp => {
+            this.messageService.setMessage(createMessage('success', resp.toString()));
+        });
     }
 
     deleteTask(id: number) {

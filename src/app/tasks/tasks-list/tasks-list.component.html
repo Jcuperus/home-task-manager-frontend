@@ -10,7 +10,7 @@
             </td>
             <td class="name-col">{{ task.name }}</td>
             <td>{{ task.dueDate | date: 'hh:mm' }}</td>
-            <td> <a (click)="test(task.id)">delete</a></td>
+            <td> <a (click)="delete(task.id)">delete</a></td>
         </tr>
         <tr class="hidden">
             <td colspan="3">
