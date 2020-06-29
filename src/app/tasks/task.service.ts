@@ -1,20 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { MessageResponse } from '../common-http/message-response';
 import { Group } from '../groups/group';
 import { Task } from './task';
-import { MessageResponse } from '../common-http/message-response';
-import { map } from 'rxjs/operators';
-import { TasksListComponent } from './tasks-list/tasks-list.component';
-import { MessageService } from '../common-components/message-box/message.service';
-import { createMessage } from '../common-components/message-box/message';
-import { TasksComponent } from './tasks.component';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class TaskService {
 
-    constructor(private http: HttpClient, private messageService: MessageService, private router: Router) { }
+    private taskChangedSource = new Subject<Task>();
+    taskChanged$ = this.taskChangedSource.asObservable();
+
+    constructor(private http: HttpClient) { }
 
     getTask(id: number): Observable<Task> {
         return this.http.get<Task>('tasks/' + id)
@@ -61,5 +59,13 @@ export class TaskService {
         }
 
         return this.http.post<MessageResponse>('tasks/', task);
+    }
+
+    deleteTask(id: number) {
+        return this.http.delete<MessageResponse>("tasks/" + id);
+    }
+
+    emitTaskChange(task: Task) {
+        this.taskChangedSource.next(task);
     }
 }

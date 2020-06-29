@@ -12,14 +12,11 @@ export class GroupsService {
     constructor(private http: HttpClient) {}
 
     getGroup(id: number): Observable<Group>{
-        return this.http.get<Group>('groups/' + id).pipe(map(group => group));
+        return this.http.get<Group>('groups/' + id);
     }
 
     getGroups(): Observable<Group[]>{
         return this.http.get<Group[]>("groups");
-    }
-    getUserFromDb(value: string): Observable<User>{
-        return this.http.get<User>('/users/'+value);
     }
 
     addGroup(group: Array<string>) : Observable<Group> {
@@ -36,5 +33,9 @@ export class GroupsService {
 
     getUserByName(username: string): Observable<User>{
         return this.http.get<User>('users/name/' + username);
+    }
+
+    removeUser(user: User){
+        return this.http.delete<User>('users/' + user.id + '/leave');
     }
 }

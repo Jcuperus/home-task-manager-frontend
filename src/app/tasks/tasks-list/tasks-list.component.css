@@ -1,8 +1,13 @@
-.tasks {
-    width: 100%;
+.header {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-.tasks th.header {
+.tasks {
+    margin-bottom: 15px;
+}
+
+/* .tasks th.header {
     background-color: #00796b;
     color: #ffffff;
     text-align: left;
@@ -39,4 +44,4 @@
 
 .tasks tr.hidden {
     display: none;
-}
+} */

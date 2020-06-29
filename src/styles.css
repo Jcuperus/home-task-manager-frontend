@@ -13,6 +13,14 @@ a {
     text-decoration: unset;
 }
 
+a > i.fas {
+    color: #000000;
+}
+
+a > i.fas:hover {
+    cursor: pointer;
+}
+
 .container {
     background-color: #ffffff;
     padding: 15px;
@@ -75,4 +83,14 @@ textarea:focus {
 .form-group .form-component {
     width: 100%;
     box-sizing: border-box;
+}
+
+.form-group .input-button-combo {
+    display: flex;
+    width: 100%;
+}
+
+.form-group .input-button-combo .button {
+    margin-left: 10px;
+    margin-right: unset;
 }

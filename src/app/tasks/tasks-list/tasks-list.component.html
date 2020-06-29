@@ -1,24 +1,4 @@
-<table class="tasks">
-    <tr>
-        <th class="header" colspan="4">Tasks</th>
-    </tr>
-    <ng-container *ngFor="let task of tasks; last as isLast">
-        <tr [ngClass]="{ 'last': isLast }">
-            <td class="icon">
-                <span *ngIf="task.isDone; else notDone"><i class="fas fa-check"></i></span>
-                <ng-template #notDone><i class="fas fa-times"></i></ng-template>
-            </td>
-            <td class="name-col">{{ task.name }}</td>
-            <td>{{ task.dueDate | date: 'hh:mm' }}</td>
-            <td> <a (click)="delete(task.id)">delete</a></td>
-        </tr>
-        <tr class="hidden">
-            <td colspan="3">
-                <div class="task-actions"><a [routerLink]="['./', task.id]"><i class="fas fa-wrench"></i></a></div>
-            </td>
-        </tr>
-    </ng-container>
-    <tr class="last" *ngIf="tasks && tasks.length == 0">
-        <td colspan="5">No tasks</td>
-    </tr>
-</table>
+<div class="tasks">
+    <div class="header">{{ title }}</div>
+    <app-task-list-item *ngFor="let task of tasks" [task]="task"></app-task-list-item>
+</div>

@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { TaskService } from '../task.service';
-import { Task } from '../task';
-import { GroupsService } from 'src/app/groups/groups.service';
-import { Group } from 'src/app/groups/group';
-import { MessageService } from 'src/app/common-components/message-box/message.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { createMessage } from 'src/app/common-components/message-box/message';
+import { MessageService } from 'src/app/common-components/message-box/message.service';
+import { Group } from 'src/app/groups/group';
+import { GroupsService } from 'src/app/groups/groups.service';
+import { Task } from '../task';
+import { TaskService } from '../task.service';
 
 @Component({
     templateUrl: './task-form.component.html'
 })
 export class TaskFormComponent implements OnInit {
     task: Task = { group: null, name: '', description: '', dueDate: new Date(), isDone: false };
-    hours: Array<number> = Array(24).fill(0).map((x,i) => i);
-    minutes: Array<number> = Array(60).fill(0).map((x,i) => i);
+    hours: Array<number> = [...Array(24).keys()];
+    minutes: Array<number> = [...Array(60).keys()];
     reminderOptions: Array<string> = ['1 minute', '2 minutes', '3 minutes', '5 minutes', '10 minutes', '20 minutes', '30 minutes', '1 hour', '2 hours', 'No reminder'];
     groups: Group[];
 
     constructor(
-        private route: ActivatedRoute, 
-        private router: Router, 
+        private route: ActivatedRoute,
         private taskService: TaskService, 
         private groupService: GroupsService,
         private messageService: MessageService) { }
@@ -40,7 +39,7 @@ export class TaskFormComponent implements OnInit {
         });
     }
 
-    onComplete() {
-        
+    compareGroups(group1: Group, group2: Group): boolean {
+        return group1 && group2 && group1.id == group2.id;
     }
 }

@@ -11,7 +11,6 @@ export class MessageService {
     }
 
     setMessage(message: Message) {
-        console.log('hier', message);
         this.messageSource.next(message);
     }
 }

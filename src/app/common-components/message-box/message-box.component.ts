@@ -12,10 +12,8 @@ export class MessageBoxComponent {
 
     constructor(private messageService: MessageService) {
         this.messageService.getMessage().subscribe(message => {
-            console.log(message);
             this.message = message;
-            setTimeout(time => this.message = null, 5000);
+            setTimeout(() => this.message = null, 5000);
         });
-        
     }
 }

@@ -8,12 +8,6 @@ import { TaskService } from '../task.service';
     styleUrls: ['./tasks-list.component.css']
 })
 export class TasksListComponent {
+    @Input() title: string = "Tasks";
     @Input() tasks: Task[];
-
-    constructor(private task: TaskService) {  }
-
-    delete(id){
-        this.task.deleteTask(id);
-    }
-    
 }

@@ -43,11 +43,10 @@ export class AuthenticationService {
         if (currentUser && currentUser instanceof User) {
             return of(currentUser);
         } else if (this.getToken() != null) {
-            return this.http.get('users/current')
-                .pipe(map((user: User) => {
-                    localStorage.setItem(this.currentUserKey, JSON.stringify(user));
-                    return user;
-                }));
+            return this.http.get('users/current').pipe(map((user: User) => {
+                localStorage.setItem(this.currentUserKey, JSON.stringify(user));
+                return user;
+            }));
         }
 
         return of(null);
@@ -55,11 +54,10 @@ export class AuthenticationService {
 
     checkToken(){
         if(localStorage.getItem("Authorization")){
-             this.http.post("users/check", localStorage.getItem("Authorization")).
-             subscribe(
-                 resp => this.messageService.setMessage(createMessage('success', resp.toString())),
-                 error => this.messageService.setMessage(createMessage('error', error))
-                 );
+            this.http.post("users/check", localStorage.getItem("Authorization")).subscribe(
+                resp => this.messageService.setMessage(createMessage('success', resp.toString())),
+                error => this.messageService.setMessage(createMessage('error', error))
+            );
         }
     }
 

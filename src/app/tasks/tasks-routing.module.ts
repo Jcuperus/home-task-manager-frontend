@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TasksComponent } from './tasks.component';
 import { TaskFormComponent } from './task-form/task-form.component';
-import { GroupFormComponent } from '../groups/group-form.component';
+import { GroupFormComponent } from '../groups/group-form/group-form.component';
 
 const tasksRoutes: Routes = [
     { path: 'create', component: TaskFormComponent, data: { title: 'Create task' } },
