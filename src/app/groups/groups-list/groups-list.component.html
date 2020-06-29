@@ -1,9 +1,10 @@
 <ul>
     <li *ngFor="let checkboxItem of checkboxItems">
-        <a [routerLink]="['/groups/', checkboxItem.id]"><i class="fas fa-wrench"></i></a>
-        {{ checkboxItem.id }}
         <input type="checkbox" [(ngModel)]="checkboxItem.checked" (change)="onSelect(checkboxItem)" [id]="'checkbox' + checkboxItem.value">
         <label [for]="'checkbox' + checkboxItem.value">{{ checkboxItem.label }}</label>
-        <a (click)="leaveGroup(currentUser, checkboxItem.id)"><i class="fas fa-trash-alt"></i></a>
+        <span class="actions">
+            <a><i class="fas fa-sign-out-alt"></i></a>
+            <a [routerLink]="['/groups/', checkboxItem.id]"><i class="fas fa-edit"></i></a>            
+        </span>
     </li>
 </ul>

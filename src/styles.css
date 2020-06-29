@@ -13,6 +13,14 @@ a {
     text-decoration: unset;
 }
 
+a > i.fas {
+    color: #000000;
+}
+
+a > i.fas:hover {
+    cursor: pointer;
+}
+
 .container {
     background-color: #ffffff;
     padding: 15px;

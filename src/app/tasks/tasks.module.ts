@@ -10,12 +10,14 @@ import { TasksComponent } from './tasks.component';
 import { TaskService } from './task.service';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksCalendar } from './tasks-calendar/tasks-calendar.component';
+import { TaskListItemComponent } from './tasks-list/task-list-item/task-list-item.component';
 
 
 @NgModule({
     declarations: [
         TasksComponent,
         TasksListComponent,
+        TaskListItemComponent,
         TaskFormComponent,
         TasksCalendar
     ],

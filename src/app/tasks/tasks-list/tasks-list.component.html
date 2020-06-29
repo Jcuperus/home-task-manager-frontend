@@ -1,4 +1,4 @@
-<table class="tasks">
+<!-- <table class="tasks">
     <tr>
         <th class="header" colspan="4">Tasks</th>
     </tr>
@@ -21,4 +21,10 @@
     <tr class="last" *ngIf="tasks && tasks.length == 0">
         <td colspan="5">No tasks</td>
     </tr>
-</table>
+</table> -->
+
+
+<div class="tasks">
+    <div class="header">{{ title }}</div>
+    <app-task-list-item *ngFor="let task of tasks" [task]="task"></app-task-list-item>
+</div>

@@ -1,17 +1,12 @@
 <app-sidebar>
+    <a routerLink="create" class="button primary create">New task</a>
     <h3>Groups</h3>
-    <app-checkbox-group [checkboxItems]="groups" (onSelectionChange)="onGroupsChange($event)">
-        <li>
-            <a routerLink="/groups/create" class="button primary">New group</a>
-        </li>
-    </app-checkbox-group>
+    <app-groups-list [checkboxItems]="groups" (onSelectionChange)="onGroupsChange($event)"></app-groups-list>
 </app-sidebar>
 <app-sidebar-content>
+    <app-message-box></app-message-box>
     <div class="container">
         <app-page-title></app-page-title>
-        <div class="actions">
-            <a routerLink="create" class="button primary">New task</a>
-        </div>
         <app-tasks-calendar [tasks]="tasks"></app-tasks-calendar>
     </div>
 </app-sidebar-content>

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class BackendInterceptor implements HttpInterceptor {
     
-    backendUrl = "http://localhost:8080";
+    backendUrl = "http://127.0.0.1:8080";
     
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request.clone({ url: `${this.backendUrl}/${request.url}` }));

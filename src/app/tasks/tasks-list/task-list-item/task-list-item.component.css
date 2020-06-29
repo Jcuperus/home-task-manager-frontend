@@ -1,0 +1,30 @@
+:host {
+    display: block;
+    background-color: #00796b;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+:host > * {
+    margin-bottom: 5px;
+}
+
+:host > *:last-of-type {
+    margin-bottom: unset;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.header .name {
+    flex-grow: 1;
+}
+
+.header .actions a i {
+    color: #ffffff;
+    margin-left: 5px;
+}

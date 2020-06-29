@@ -19,6 +19,8 @@ export class TasksComponent implements OnInit {
             this.groups = groups.map(group => new GroupCheckboxItemAdapter(group, true));
             this.onGroupsChange(this.groups.filter(group => group.checked));
         });
+
+        this.taskService.taskChanged$.subscribe(task => this.onGroupsChange(this.groups.filter(group => group.checked)))
     }
 
     onGroupsChange(selectedGroups: Group[]) {
