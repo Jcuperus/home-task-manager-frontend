@@ -5,12 +5,15 @@ import { map } from 'rxjs/operators';
 import { MessageResponse } from '../common-http/message-response';
 import { Group } from '../groups/group';
 import { Task } from './task';
+import { MessageService } from '../common-components/message-box/message.service';
+import { createMessage } from '../common-components/message-box/message';
 
 @Injectable()
 export class TaskService {
 
     private taskChangedSource = new Subject<Task>();
     taskChanged$ = this.taskChangedSource.asObservable();
+    messageService: MessageService;
 
     constructor(private http: HttpClient) { }
 
@@ -46,11 +49,6 @@ export class TaskService {
         subscribe(resp => {
             this.messageService.setMessage(createMessage('success', resp.toString()));
         });
-    }
-
-    deleteTask(id: number) {
-        this.http.post('tasks/' + id, id).
-        subscribe(resp => this.getTasks());
     }
 
     saveTask(task: Task): Observable<MessageResponse> {
