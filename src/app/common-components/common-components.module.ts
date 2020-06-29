@@ -9,7 +9,6 @@ import { NavUserComponent } from './navbar/nav-user/nav-user.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageTitleComponent } from './page-title.component';
 import { Sidebar, SidebarContent, SidebarLayout } from './sidebar/sidebar.component';
-import { GroupLeaveButtonComponent } from '../groups/group-leave-button.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +17,6 @@ import { GroupLeaveButtonComponent } from '../groups/group-leave-button.componen
         NavUserComponent,
         PageTitleComponent,
         MessageBoxComponent,
-        GroupLeaveButtonComponent,
         Sidebar,
         SidebarContent,
         SidebarLayout
@@ -33,7 +31,6 @@ import { GroupLeaveButtonComponent } from '../groups/group-leave-button.componen
         NavbarComponent,
         PageTitleComponent,
         MessageBoxComponent,
-        GroupLeaveButtonComponent,
         Sidebar,
         SidebarContent,
         SidebarLayout
