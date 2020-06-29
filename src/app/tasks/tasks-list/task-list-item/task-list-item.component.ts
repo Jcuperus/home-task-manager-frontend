@@ -22,6 +22,9 @@ export class TaskListItemComponent {
     }
 
     finishTask() {
-        console.log("TODO: finish task");
+        console.log("stap 1");
+        this.taskService.finishTasks(this.task.id).subscribe(resp => {
+            this.taskService.emitTaskChange(this.task)
+        });
     }
 }

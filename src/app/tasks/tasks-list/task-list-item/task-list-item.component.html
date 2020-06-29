@@ -1,7 +1,7 @@
 <div class="aside">
     <a (click)="finishTask()"><i class="fas fa-check"></i></a>
 </div>
-<div class="content">
+<div class="content" [ngClass]="{'done': task.isDone}">
     <div class="header">
         <span class="name">{{ task.name }}</span>
         <span class="actions">

@@ -45,7 +45,7 @@ export class TaskService {
     }
 
     finishTasks(id: number) {
-        this.http.put('tasks/' + id, {});
+        return this.http.put('tasks/' + id, {});
     }
 
     saveTask(task: Task): Observable<MessageResponse> {
