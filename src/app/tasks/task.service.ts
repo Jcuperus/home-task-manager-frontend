@@ -41,6 +41,18 @@ export class TaskService {
             }));
     }
 
+    finishTasks(id: number) {
+        this.http.put('tasks/' + id, id).
+        subscribe(resp => {
+            this.messageService.setMessage(createMessage('success', resp.toString()));
+        });
+    }
+
+    deleteTask(id: number) {
+        this.http.post('tasks/' + id, id).
+        subscribe(resp => this.getTasks());
+    }
+
     saveTask(task: Task): Observable<MessageResponse> {
         if (task.id) {
             return this.http.put<MessageResponse>('tasks/', task);
