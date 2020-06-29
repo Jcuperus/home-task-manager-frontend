@@ -1,5 +1,7 @@
 <ul>
     <li *ngFor="let checkboxItem of checkboxItems">
+        <a [routerLink]="['/groups/', checkboxItem.id]"><i class="fas fa-wrench"></i></a>
+        {{ checkboxItem.id }}
         <input type="checkbox" [(ngModel)]="checkboxItem.checked" (change)="onSelect(checkboxItem)" [id]="'checkbox' + checkboxItem.value">
         <label [for]="'checkbox' + checkboxItem.value">{{ checkboxItem.label }}</label>
     </li>

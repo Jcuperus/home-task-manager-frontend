@@ -1,9 +1,14 @@
-<div class="header">
-    <span class="name">{{ task.name }}</span>
-    <span class="actions">
-        <a [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit"></i></a>
-        <a (click)="deleteTask()"><i class="fas fa-trash"></i></a>
-    </span>
+<div class="aside">
+    <a (click)="finishTask()"><i class="fas fa-check"></i></a>
 </div>
-<div>{{ task.description }}</div>
-<div>{{ task.dueDate | date: 'HH:mm' }}</div>
+<div class="content">
+    <div class="header">
+        <span class="name">{{ task.name }}</span>
+        <span class="actions">
+            <a [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit"></i></a>
+            <a (click)="deleteTask()"><i class="fas fa-trash"></i></a>
+        </span>
+    </div>
+    <div>{{ task.description }}</div>
+    <div>{{ task.dueDate | date: 'HH:mm' }}</div>
+</div>

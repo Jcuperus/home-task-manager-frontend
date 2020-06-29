@@ -20,4 +20,8 @@ export class TaskListItemComponent {
             this.taskService.emitTaskChange(this.task)
         });
     }
+
+    finishTask() {
+        console.log("TODO: finish task");
+    }
 }
