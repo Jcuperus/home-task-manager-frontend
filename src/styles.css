@@ -13,11 +13,11 @@ a {
     text-decoration: unset;
 }
 
-a > i.fas {
+a i {
     color: #000000;
 }
 
-a > i.fas:hover {
+a i:hover {
     cursor: pointer;
 }
 

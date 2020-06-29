@@ -5,14 +5,32 @@
     padding: 5px 10px;
     margin-bottom: 5px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-:host > * {
+:host .content {
+    flex-grow: 1;
+}
+
+:host .content > * {
     margin-bottom: 5px;
 }
 
-:host > *:last-of-type {
+:host .content > *:last-of-type {
     margin-bottom: unset;
+}
+
+.aside {
+    padding: 10px 20px 10px 10px;
+    margin-right: 10px;
+    font-size: 32px;
+    border-right: 1px dashed #00251a;
+}
+
+.aside a > i {
+    color: #00251a;
 }
 
 .header {
