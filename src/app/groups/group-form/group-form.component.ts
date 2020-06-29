@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { User } from '../users/user';
-import { Group } from './group';
-import { GroupsService } from './groups.service';
-import { MessageService } from '../common-components/message-box/message.service';
-import { createMessage } from '../common-components/message-box/message';
+import { User } from '../../users/user';
+import { Group } from '../group';
+import { GroupsService } from '../groups.service';
+import { MessageService } from '../../common-components/message-box/message.service';
+import { createMessage } from '../../common-components/message-box/message';
 
 @Component({
     templateUrl: './group-form.component.html'

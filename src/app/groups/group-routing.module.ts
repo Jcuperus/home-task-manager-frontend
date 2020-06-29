@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GroupFormComponent } from './group-form.component';
+import { GroupFormComponent } from './group-form/group-form.component';
 
 
 const routes: Routes = [
