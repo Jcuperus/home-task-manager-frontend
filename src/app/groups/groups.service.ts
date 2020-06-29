@@ -4,6 +4,7 @@ import { of, Observable } from 'rxjs';
 import { User } from '../users/user';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { UserService } from '../users/user.service';
 
 
 @Injectable()
@@ -35,7 +36,7 @@ export class GroupsService {
         return this.http.get<User>('users/name/' + username);
     }
 
-    removeUser(user: User){
-        return this.http.delete<User>('users/' + user.id + '/leave');
+    removeUser(user: User, group: Group): Observable<any>{
+        return this.http.post('groups/' + group.id + '/leave', user);
     }
 }
