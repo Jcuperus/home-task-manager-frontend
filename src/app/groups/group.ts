@@ -5,11 +5,13 @@ export interface Group {
     id?: number;
     name: string;
     users?: User[];
+    color: string;
 }
 
 export class GroupCheckboxItemAdapter implements Group, CheckboxItem {
     id?: number;
     name: string;
+    color: string
     value: string;
     label: string;
     checked: boolean;
@@ -20,6 +22,7 @@ export class GroupCheckboxItemAdapter implements Group, CheckboxItem {
         this.value = group.id.toString();
         this.label = group.name;
         this.checked = checked ? checked : false;
+        this.color = group.color;
     }
     
 }

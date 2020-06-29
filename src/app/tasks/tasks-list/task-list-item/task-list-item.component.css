@@ -1,6 +1,5 @@
-:host {
+.task-item {
     display: block;
-    background-color: #00796b;
     color: #ffffff;
     padding: 5px 10px;
     margin-bottom: 5px;

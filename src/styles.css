@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @font-face {
     font-family: 'Open Sans';
     src: url('./assets/fonts/OpenSans-Regular.ttf');
@@ -25,8 +26,9 @@ a i:hover {
     background-color: #ffffff;
     padding: 15px;
     margin: 15px;
-    box-shadow: 0 0 6px 6px rgba(0,0,0,.1);
+    box-shadow: 0 0 6px 6px rgba(0, 0, 0, .1);
 }
+
 
 /* Form components */
 
@@ -38,6 +40,12 @@ select {
     padding: 10px;
     border: 1px solid #e1e2e1;
     border-radius: 3px;
+}
+
+input[type="color"] {
+    padding: 1px;
+    width: 100px;
+    height: 30px;
 }
 
 input[type="checkbox"] {

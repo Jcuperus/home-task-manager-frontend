@@ -1,7 +1,7 @@
 <ul>
     <li *ngFor="let checkboxItem of checkboxItems">
         <input type="checkbox" [(ngModel)]="checkboxItem.checked" (change)="onSelect(checkboxItem)" [id]="'checkbox' + checkboxItem.value">
-        <label [for]="'checkbox' + checkboxItem.value">{{ checkboxItem.label }}</label>
+        <label [for]="'checkbox' + checkboxItem.value" [style.color]="checkboxItem.color">{{ checkboxItem.label }}</label>
         <span class="actions">
             <a (click)="leaveGroup(currentUser, checkboxItem.id)"><i class="fas fa-sign-out-alt"></i></a>
             <a [routerLink]="['/groups/', checkboxItem.id]"><i class="fas fa-edit"></i></a>            

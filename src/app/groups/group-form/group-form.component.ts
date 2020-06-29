@@ -12,7 +12,7 @@ import { createMessage } from 'src/app/common-components/message-box/message';
     styleUrls: ['./group-form.component.css']
 })
 export class GroupFormComponent implements OnInit {
-    group: Group = {id: 0, name: '', users: []};
+    group: Group = {id: 0, name: '', users: [], color: ""};
     memberAddForm: FormGroup;
     newMember: string;
     currentUser: User;

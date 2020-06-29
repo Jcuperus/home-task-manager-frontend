@@ -1,14 +1,16 @@
-<div class="aside">
-    <a (click)="finishTask()"><i class="fas fa-check"></i></a>
-</div>
-<div class="content" [ngClass]="{'done': task.isDone}">
-    <div class="header">
-        <span class="name">{{ task.name }}</span>
-        <span class="actions">
-            <a *ngIf ="taskIDIsUserID" [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit"></i></a>
-            <a (click)="deleteTask()"><i class="fas fa-trash"></i></a>
-        </span>
+<div class="task-item" [style.background-color]="task.group.color">
+    <div class="aside">
+        <a (click)="finishTask()"><i class="fas fa-check"></i></a>
     </div>
-    <div>{{ task.description }}</div>
-    <div>{{ task.dueDate | date: 'HH:mm' }}</div>
+    <div class="content" [ngClass]="{'done': task.isDone}">
+        <div class="header">
+            <span class="name">{{ task.name }}</span>
+            <span class="actions">
+                <a *ngIf ="taskIDIsUserID" [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit"></i></a>
+                <a (click)="deleteTask()"><i class="fas fa-trash"></i></a>
+            </span>
+        </div>
+        <div>{{ task.description }}</div>
+        <div>{{ task.dueDate | date: 'HH:mm' }}</div>
+    </div>
 </div>
