@@ -2,11 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MessageService } from '../common-components/message-box/message.service';
 import { MessageResponse } from '../common-http/message-response';
 import { Group } from '../groups/group';
 import { Task } from './task';
-import { MessageService } from '../common-components/message-box/message.service';
-import { createMessage } from '../common-components/message-box/message';
 
 @Injectable()
 export class TaskService {

@@ -16,11 +16,11 @@
     text-decoration: line-through;
 }
 
-:host .content>* {
+:host .content > * {
     margin-bottom: 5px;
 }
 
-:host .content>*:last-of-type {
+:host .content > *:last-of-type {
     margin-bottom: unset;
 }
 
@@ -31,19 +31,13 @@
     border-right: 1px dashed #00251a;
 }
 
-.aside a>i {
+.aside a > i {
     color: #00251a;
 }
 
 .header {
     display: flex;
     flex-direction: row;
-}
-
-.headerDone {
-    display: flex;
-    flex-direction: row;
-    text-decoration: dashed;
 }
 
 .header .name {
