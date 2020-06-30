@@ -9,6 +9,7 @@ import { NavUserComponent } from './navbar/nav-user/nav-user.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageTitleComponent } from './page-title.component';
 import { Sidebar, SidebarContent, SidebarLayout } from './sidebar/sidebar.component';
+import { ReadableBackgroundDirective } from './readable-background.directive';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { Sidebar, SidebarContent, SidebarLayout } from './sidebar/sidebar.compon
         MessageBoxComponent,
         Sidebar,
         SidebarContent,
-        SidebarLayout
+        SidebarLayout,
+        ReadableBackgroundDirective
     ],
     imports: [
         CommonModule,
@@ -33,7 +35,8 @@ import { Sidebar, SidebarContent, SidebarLayout } from './sidebar/sidebar.compon
         MessageBoxComponent,
         Sidebar,
         SidebarContent,
-        SidebarLayout
+        SidebarLayout,
+        ReadableBackgroundDirective
     ],
     providers: [
         MessageService

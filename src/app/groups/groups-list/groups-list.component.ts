@@ -6,8 +6,4 @@ import { CheckboxGroupComponent } from 'src/app/common-components/checkbox-group
     templateUrl: './groups-list.component.html',
     styleUrls: ['./groups-list.component.css', '../../common-components/checkbox-group/checkbox-group.component.css']
 })
-export class GroupsListComponent extends CheckboxGroupComponent {
-    
-    
-
-}
+export class GroupsListComponent extends CheckboxGroupComponent {}

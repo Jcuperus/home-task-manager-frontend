@@ -1,13 +1,13 @@
-<div class="task-item" [style.background-color]="task.group.color" [style.color]="getColor()">
-    <div class="aside" [style.border-color]="getColor()">
-        <a (click)="finishTask()"><i [style.color]="getColor()" class="fas fa-check"></i></a>
+<div class="task-item" [style.background-color]="task.group.color" [appReadableBackground]="task.group.color">
+    <div class="aside" [appReadableBackground]="task.group.color">
+        <a (click)="finishTask()"><i [appReadableBackground]="task.group.color" class="fas fa-check"></i></a>
     </div>
     <div class="content" [ngClass]="{'done': task.isDone}">
         <div class="header">
             <span class="name">{{ task.name }}</span>
             <span class="actions" *ngIf="belongsToUser">
-                <a [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit" [style.color]="getColor()"></i></a>
-                <a (click)="deleteTask()"><i class="fas fa-trash" [style.color]="getColor()"></i></a>
+                <a [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit" [appReadableBackground]="task.group.color"></i></a>
+                <a (click)="deleteTask()"><i class="fas fa-trash" [appReadableBackground]="task.group.color"></i></a>
             </span>
         </div>
         <div>{{ task.description }}</div>
