@@ -1,4 +1,4 @@
-<div class="task-item" [style.background-color]="task.group.color">
+<div class="task-item" [style.background-color]="task.group.color" [style.color]="getColor()">
     <div class="aside">
         <a (click)="finishTask()"><i class="fas fa-check"></i></a>
     </div>
