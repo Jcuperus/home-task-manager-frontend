@@ -6,8 +6,8 @@
         <div class="header">
             <span class="name">{{ task.name }}</span>
             <span class="actions">
-                <a *ngIf ="taskIDIsUserID" [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit"></i></a>
-                <a (click)="deleteTask()"><i class="fas fa-trash"></i></a>
+                <a *ngIf ="taskIDIsUserID" [routerLink]="['/tasks/', task.id]"><i class="fas fa-edit" [style.color]="getColor()"></i></a>
+                <a (click)="deleteTask()"><i class="fas fa-trash" [style.color]="getColor()"></i></a>
             </span>
         </div>
         <div>{{ task.description }}</div>
