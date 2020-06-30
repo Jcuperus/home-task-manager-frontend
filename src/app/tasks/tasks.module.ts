@@ -11,6 +11,7 @@ import { TaskService } from './task.service';
 import { TasksRoutingModule } from './tasks-routing.module';
 import { TasksCalendar } from './tasks-calendar/tasks-calendar.component';
 import { TaskListItemComponent } from './tasks-list/task-list-item/task-list-item.component';
+import { PushNotificationService } from '../common-components/push-notifications/push-notifications.service';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TaskListItemComponent } from './tasks-list/task-list-item/task-list-ite
         CommonComponentsModule
     ],
     providers: [
-        TaskService
+        TaskService,
+        PushNotificationService
     ]
 })
 export class TasksModule {  }

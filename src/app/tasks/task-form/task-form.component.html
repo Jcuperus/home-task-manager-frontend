@@ -22,18 +22,11 @@
         </div>
         <div class="form-group">
             <label for="reminder">Set reminder</label>
-            <select id="hours">
-                <option *ngFor="let hour of hours">{{hour}}</option>
-            </select>
-            :
-            <select id="minutes">
-                <option *ngFor="let minute of minutes">{{minute}}</option>
-            </select><br>
-            This reminder will be shown
-            <select id="minutesBefore">
-                <option *ngFor="let option of reminderOptions">{{option}}</option>
+            <select id="reminder" [(ngModel)]="selectedOption" name="reminder">
+                <option *ngFor="let option of reminderOptions" [value]="option.value">{{option.name}}</option>
             </select>
             before the task needs to be done.
+            <button class="button" (click)="setRemindTime(selectedOption)">Set reminder</button>
         </div>
         <button class="button primary" type="submit">Save</button>
         <a routerLink="/tasks" class="button">Cancel</a>

@@ -13,6 +13,7 @@ import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ErrorInterceptor } from './common-http/error-interceptor';
+import { PushNotificationService } from './common-components/push-notifications/push-notifications.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ErrorInterceptor } from './common-http/error-interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BackendInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    PushNotificationService
   ],
   bootstrap: [AppComponent]
 })
