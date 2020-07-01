@@ -13,8 +13,6 @@ export class ErrorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler){
         return next.handle(request).pipe(
             catchError((error: HttpErrorResponse) => {
-                console.log(error);
-
                 if(error.status == 403){
                     this.messageService.setMessage(createMessage("error", "Account niet gevonden"));
                 }

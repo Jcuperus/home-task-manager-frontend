@@ -12,7 +12,6 @@ export class ReadableBackgroundDirective implements OnInit {
     constructor(private element: ElementRef) {}
 
     ngOnInit() {
-        console.log(this.appReadableBackground);
         let color = this.getColor(this.appReadableBackground);
         this.element.nativeElement.style.color = color;
         this.element.nativeElement.style.borderColor = color;

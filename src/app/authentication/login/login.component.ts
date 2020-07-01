@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-import { AuthenticationService } from './authentication.service';
-import { Credentials } from './credentials';
-import { MessageService } from '../common-components/message-box/message.service';
-import { createMessage } from '../common-components/message-box/message';
+import { AuthenticationService } from '../authentication.service';
+import { Credentials } from '../credentials';
+import { MessageService } from '../../common-components/message-box/message.service';
+import { createMessage } from '../../common-components/message-box/message';
 import { Router } from '@angular/router';
 
 
@@ -18,8 +18,9 @@ export class LoginComponent {
     login() {
         this.authenticationService.login(this.credentials).subscribe(
             response => { 
-                this.messageService.setMessage(createMessage('success', response.message)) 
-                this.router.navigate(['../'])
+                this.messageService.setMessage(createMessage('success', response.message));
+                this.authenticationService.notifyLoggedIn();
+                this.router.navigate(['../']);
             },
             error => this.messageService.setMessage(createMessage('error', error))
         );

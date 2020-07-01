@@ -50,7 +50,7 @@ export class GroupFormComponent implements OnInit {
     }
 
     onSave(){
-        this.groupservice.saveGroup(this.group).subscribe(response => console.log(response));
+        this.groupservice.saveGroup(this.group).subscribe();
         this.router.navigate(['/tasks']);
     }
 }

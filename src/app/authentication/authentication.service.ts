@@ -1,17 +1,19 @@
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, OperatorFunction, throwError, of } from 'rxjs';
-import { Credentials } from './credentials';
-import { MessageResponse } from '../common-http/message-response';
-import { map, catchError } from 'rxjs/operators';
-import { User } from '../users/user';
-import { MessageService } from '../common-components/message-box/message.service';
+import { Observable, of, Subject, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { createMessage } from '../common-components/message-box/message';
-
+import { MessageService } from '../common-components/message-box/message.service';
+import { MessageResponse } from '../common-http/message-response';
+import { User } from '../users/user';
+import { Credentials } from './credentials';
 
 @Injectable()
 export class AuthenticationService {
     
+    private notifyLoginSource = new Subject<boolean>();
+    notifyLogin$ = this.notifyLoginSource.asObservable();
+
     tokenKey = 'Authorization';
     currentUserKey = 'currentUser';
 
@@ -44,12 +46,16 @@ export class AuthenticationService {
             return of(currentUser);
         } else if (this.getToken() != null) {
             return this.http.get('users/current').pipe(map((user: User) => {
-                localStorage.setItem(this.currentUserKey, JSON.stringify(user));
+                this.setCurrentUser(user);
                 return user;
             }));
         }
 
         return of(null);
+    }
+
+    setCurrentUser(user: User) {
+        localStorage.setItem(this.currentUserKey, JSON.stringify(user));
     }
 
     checkToken(){
@@ -67,6 +73,10 @@ export class AuthenticationService {
 
     setToken(token: string) {
         localStorage.setItem(this.tokenKey, token);
+    }
+
+    notifyLoggedIn() {
+        this.notifyLoginSource.next(true);
     }
 
     private catchForbiddenError(error: HttpErrorResponse) {

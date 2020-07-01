@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-import { AuthenticationService } from './authentication.service';
-import { Credentials } from './credentials';
-import { MessageService } from '../common-components/message-box/message.service';
-import { createMessage } from '../common-components/message-box/message';
+import { AuthenticationService } from '../authentication.service';
+import { Credentials } from '../credentials';
+import { MessageService } from '../../common-components/message-box/message.service';
+import { createMessage } from '../../common-components/message-box/message';
 import { Router } from '@angular/router';
 
 @Component({

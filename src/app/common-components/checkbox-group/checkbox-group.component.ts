@@ -27,9 +27,8 @@ export class CheckboxGroupComponent {
 
     leaveGroup(user: User, groupid: number){
         this.groupsService.getGroup(groupid).subscribe(group => {
-            console.log("group assigned successfully");
             this.currentGroup = group;
-            this.groupsService.removeUser(user, this.currentGroup).subscribe(response => console.log(response));
+            this.groupsService.removeUser(user, this.currentGroup).subscribe();
         });
     }
 
